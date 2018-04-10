@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Title#{n}" }
     prep_time 30
     cook_time 20
-    instructions "Lorem Ipsum is simply dummy text of the printing and typesetting    industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    photo '../../app/assets/images/'
+    instructions "Lorem ipsum dolor sit amet, vel suscipit, vestibulum velit sed fusce velit rutrum, porta vel. Sit vel gravida, interdum sociosqu pellentesque. Dignissim odio mattis nunc et cursus aliquam, tempus nihil eos sed, faucibus morbi quis fermentum nullam orci, bibendum sed est lacinia nulla velit lectus. Urna vulputate vel porta nunc mauris, nec suscipit morbi, turpis vel est varius a, aliquam lacus erat elit urna convallis nulla, rhoncus amet ut luctus quis natoque tortor. Quis vestibulum tempus lorem eros nec praesent. Curabitur quis condimentum tincidunt nibh sit, nunc risus tempor tellus do diam eget, a mauris id nulla, enim suscipit. Mauris ac lobortis tempor pede senectus. Massa neque, est non scelerisque tellus massa libero wisi, iaculis nullam fusce aptent fermentum tellus, libero cras sed. Suscipit dolor, in proin dui phasellus, tellus sed morbi, amet consectetuer, hendrerit est faucibus vitae diam sit dolor."
+    photo '/Users/jamesnelson/turing/personal_projects/recipes_and_lists/app/assets/images/spilled_milk.png'
   end
 end

@@ -5,7 +5,7 @@ describe 'User visits recipes index' do
     recipes = create_list(:recipe, 5)
 
     visit recipes_path
-
+save_and_open_page
     expect(page).to have_content(recipes.first.title)
     expect(page).to have_content(recipes.first.prep_time)
     expect(page).to have_content(recipes.first.cook_time)
