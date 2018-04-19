@@ -16,7 +16,7 @@ describe 'User' do
     click_button 'Log in'
 
     expect(page).to have_content("Welcome back, #{user.username}")
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(dashboard_path)
   end
 
   scenario 'can log out' do
@@ -36,7 +36,7 @@ describe 'User' do
     click_on 'Log out'
 
     expect(page).to have_content('You have been successfully logged out!')
-    expect(current_path).to eq(sessions_path)
+    expect(current_path).to eq(root_path)
     expect(page).to_not have_content(user.email)
   end
 end
