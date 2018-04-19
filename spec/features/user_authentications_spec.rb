@@ -15,7 +15,7 @@ describe 'User' do
     fill_in 'Password', with: user.password
     click_button 'Log in'
 
-    expect(page).to have_content("Welcome back, #{user.username}")
+    expect(page).to have_content("You are logged in as #{user.username}")
     expect(current_path).to eq(dashboard_path)
   end
 
@@ -35,7 +35,7 @@ describe 'User' do
 
     click_on 'Log out'
 
-    expect(page).to have_content('You have been successfully logged out!')
+    expect(page).to have_content('You have logged out')
     expect(current_path).to eq(root_path)
     expect(page).to_not have_content(user.email)
   end
