@@ -11,7 +11,6 @@ describe 'User visits root path' do
       fill_in 'Username', with: username
       fill_in 'E-mail address', with: 'test@test.com'
       fill_in 'Password', with: 'test'
-      fill_in 'Password confirmation', with: 'test'
 
       click_on 'Create Account'
 

@@ -1,10 +1,10 @@
-<h1>Create an account here</h1>
-<%= form_for @user do |f| %>
+<h1>Edit your account information here</h1>
+<%= form_for current_user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :email, 'E-mail address' %>
   <%= f.email_field :email %>
   <%= f.label :password %>
   <%= f.password_field :password %>
-  <%= f.submit 'Create Account' %>
+  <%= f.submit 'Update Profile' %>
 <% end %>
