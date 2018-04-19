@@ -1,0 +1,9 @@
+<h3>All Recipes</h3>
+<% @recipes.each do |recipe| %>
+  <%= image_tag(recipe.photo) %>
+  <p><%= link_to recipe.title, recipe_path(recipe) %></p>
+  <p>
+    Prep Time: <%= recipe.prep_time %> -
+    Cook Time: <%= recipe.cook_time %>
+  </p>
+<% end %>
