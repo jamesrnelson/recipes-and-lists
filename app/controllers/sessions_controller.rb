@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      flash[:error] = 'Unable to Login'
+      flash[:error] = 'Unable to log in'
+      render :new
     end
   end
 

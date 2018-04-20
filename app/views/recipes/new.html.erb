@@ -1,0 +1,16 @@
+<h1>Add a new recipe here</h1>
+
+<%= form_for @recipe do |f| %>
+  <p><%= f.label :title %></p>
+  <p><%= f.text_field :title %></p>
+  <p><%= f.label :prep_time %></p>
+  <p><%= f.number_field :prep_time %></p>
+  <p><%= f.label :cook_time %></p>
+  <p><%= f.number_field :cook_time %></p>
+  <p><%= f.label :instructions %></p>
+  <p><%= f.text_area :instructions %></p>
+  <p><%= f.label :image %>
+  <p><%= file_field_tag :image, accept: 'image/png,image/gif,image/jpeg' %>
+  <p>(Add ingredients on the next page)</p>
+  <p><%= f.submit %></p>
+<% end %>

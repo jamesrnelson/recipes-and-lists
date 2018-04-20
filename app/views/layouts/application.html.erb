@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <%= link_to "Logged in as #{current_user.username}", dashboard_path %>
+    <% end %>
+
+    <%= link_to 'All Recipes', recipes_path %>
     <% unless flash.empty? %>
       <div class="flash">
         <% flash.each do |type, message| %>

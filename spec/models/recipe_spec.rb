@@ -6,6 +6,5 @@ describe Recipe, type: :model do
     it { should validate_presence_of(:prep_time) }
     it { should validate_presence_of(:cook_time) }
     it { should validate_presence_of(:instructions) }
-    it { should validate_presence_of(:photo) }
   end
 end
