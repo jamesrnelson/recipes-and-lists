@@ -3,7 +3,7 @@
   <%= link_to 'Add New Recipe', new_recipe_path %>
 <% end %>
 <% @recipes.each do |recipe| %>
-  <%= image_tag(recipe.image) %>
+  <p><%= image_tag(recipe.image) %></p>
   <p><%= link_to recipe.title, recipe_path(recipe) %></p>
   <p>
     Prep Time: <%= recipe.prep_time %> -
