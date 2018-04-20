@@ -9,6 +9,8 @@
   <p><%= f.number_field :cook_time %></p>
   <p><%= f.label :instructions %></p>
   <p><%= f.text_area :instructions %></p>
+  <p><%= f.label :photo %> %>
+  <p><%= file_field_tag :photo accept: 'photo/png,photo/gif,photo/jpeg' %>
   <p>(Add ingredients on the next page)</p>
   <p><%= f.submit %></p>
 <% end %>
