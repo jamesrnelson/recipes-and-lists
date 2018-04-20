@@ -11,12 +11,16 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      flash[:success] = "You added #{@recipe.title}"
+      flash[:success] = 'You created a new recipe'
       redirect_to recipe_path(@recipe)
     else
       flash[:error] = 'Unable to add new recipe'
       render :new
     end
+  end
+
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 
   private

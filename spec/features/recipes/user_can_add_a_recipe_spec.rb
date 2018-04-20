@@ -16,7 +16,6 @@ describe 'Logged in user' do
       fill_in 'Cook time', with: 30
       fill_in 'Prep time', with: 20
       fill_in 'Instructions', with: 'Do some stuff'
-      save_and_open_page
       
       click_on 'Create Recipe'
 
