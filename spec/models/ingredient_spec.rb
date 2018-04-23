@@ -6,4 +6,9 @@ describe Ingredient, type: :model do
     it { should validate_presence_of(:category) }
     it { should validate_presence_of(:measurement) }
   end
+
+  describe 'Relationships' do
+    it { should have_many(:recipe_ingredients) }
+    it { should have_many(:recipes) }
+  end
 end
