@@ -12,11 +12,11 @@ describe 'Logged in user' do
       click_on 'Add New Recipe'
 
       expect(page).to have_content('Add ingredients on the next page')
-      fill_in 'Title', with: 'Mac n Cheese'
-      fill_in 'Cook time', with: 30
-      fill_in 'Prep time', with: 20
-      fill_in 'Instructions', with: 'Do some stuff'
-      
+      fill_in 'recipe[title]', with: 'Mac n Cheese'
+      fill_in 'recipe[cook_time]', with: 30
+      fill_in 'recipe[prep_time]', with: 20
+      fill_in 'recipe[instructions]', with: 'Do some stuff'
+
       click_on 'Create Recipe'
 
       expect(page).to have_content('You created a new recipe')
