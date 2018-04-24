@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  resources :recipes do
+    resources :recipe_ingredients, only: %i[new create]
+  end
+
   resources :users, only: %i[new create show edit update], shallow: true
-  resources :recipes
-  resources :recipe_ingredients, only: %i[new create]
+  resources :ingredients, only: %i[new create]
+
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
   get '/login', to: 'sessions#new'
