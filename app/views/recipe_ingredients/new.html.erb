@@ -1,0 +1,12 @@
+<%= form_for @recipe_ingredient do |f| %>
+  <%= binding.pry %>
+  <%= f.label :recipe %>
+  <%= f.select :recipe_id, @recipe, :id, :title %>
+  <%= f.label :ingredient %>
+  <%= f.collection_select :ingredient_id, @ingredients, :id, :name %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.label :measurement %>
+  <%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'c', 'other']) %>
+  <%= f.submit 'Add Ingredient' %>
+<% end %>

@@ -1,5 +1,5 @@
 <h1><%= @recipe.title %></h1>
-<p><%= link_to 'Add Ingredients', new_recipe_ingredient_path %></p>
+<p><%= link_to 'Add Ingredients', new_recipe_ingredient_path(id: @recipe.id) %></p>
 <p><%= image_tag(@recipe.image) %></p>
 <h3>Prep Time: <%= @recipe.prep_time %></h3>
 <h3>Cook Time: <%= @recipe.cook_time %></h3>
