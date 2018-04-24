@@ -7,4 +7,9 @@ describe Recipe, type: :model do
     it { should validate_presence_of(:cook_time) }
     it { should validate_presence_of(:instructions) }
   end
+
+  describe 'Relationships' do
+    it { should have_many(:recipe_ingredients) }
+    it { should have_many(:ingredients) }
+  end
 end

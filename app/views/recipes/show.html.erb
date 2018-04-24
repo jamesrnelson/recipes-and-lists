@@ -1,5 +1,12 @@
 <h1><%= @recipe.title %></h1>
-<%= @recipe.image %>
-<h3><%= @recipe.prep_time %></h3>
-<h3><%= @recipe.cook_time %></h3>
+<p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
+<p><%= image_tag(@recipe.image) %></p>
+<h3>Prep Time: <%= @recipe.prep_time %></h3>
+<h3>Cook Time: <%= @recipe.cook_time %></h3>
+<h3>Instructions:</h3>
 <h3><%= @recipe.instructions %></h3>
+<h3>Ingredients: </h3>
+<% sorted = @recipe.recipe_ingredients.sort_by { |recipe_ingredient| recipe_ingredient.ingredient.name } %>
+<% sorted.each do |recipe_ingredient| %>
+  <p><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{recipe_ingredient.ingredient.name}" %></p>
+<% end %>
