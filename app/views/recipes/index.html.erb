@@ -9,6 +9,7 @@
   <p><%= link_to recipe.title, recipe_path(recipe) %>
   <% if current_admin? %>
     <%= link_to 'Edit', edit_admin_recipe_path(recipe) %>
+    <%= link_to 'Delete', admin_recipe_path(recipe), method: 'delete', data: {confirm: "Are you sure you want to delete Recipe: #{recipe.title}?"}, title: "#{recipe.id} delete" %>
   <% end %>
   </p>
   <p>
