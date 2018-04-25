@@ -1,6 +1,8 @@
 <h3>All Recipes</h3>
 <% if current_user %>
   <%= link_to 'Add New Recipe', new_recipe_path %>
+<% else %>
+  <h3>Create an account and log in to add new recipes!</h3>
 <% end %>
 <% @recipes.each do |recipe| %>
   <p><%= image_tag asset_path recipe.image %></p>
