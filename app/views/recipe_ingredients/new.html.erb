@@ -1,12 +1,16 @@
-<h3>Adding ingredients to <%= @recipe.title %></h3>
-<%= form_for [@recipe, @recipe_ingredient] do |f| %>
-  <p><%= f.label :ingredient %></p>
-  <p><%= f.collection_select :ingredient_id, @ingredients, :id, :name %></p>
-  <p><%= f.label :quantity %></p>
-  <p><%= f.number_field :quantity %></p>
-  <p><%= f.label :measurement %></p>
-  <p><%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'c', 'other']) %></p>
-  <p><%= f.submit 'Add Ingredient' %></p>
+<% if current_user %>
+  <h3>Adding ingredients to <%= @recipe.title %></h3>
+  <%= form_for [@recipe, @recipe_ingredient] do |f| %>
+    <p><%= f.label :ingredient %></p>
+    <p><%= f.collection_select :ingredient_id, @ingredients, :id, :name %></p>
+    <p><%= f.label :quantity %></p>
+    <p><%= f.text_field :quantity %></p>
+    <p><%= f.label :measurement %></p>
+    <p><%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'cup', 'other']) %></p>
+    <p><%= f.submit 'Add Ingredient' %></p>
+  <% end %>
+  <%= link_to 'Create New Ingredient', new_ingredient_path(recipe_id: @recipe.id) %>
+  <%= link_to 'Done Adding Ingredients', recipe_path(@recipe) %>
+<% else %>
+  <h3>Log in to add ingredients to this recipe!</h3>
 <% end %>
-<%= button_to 'Create New Ingredient', new_ingredient_path %>
-<%= link_to 'Done Adding Ingredients', recipe_path(@recipe) %>

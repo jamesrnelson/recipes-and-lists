@@ -1,5 +1,7 @@
 <h1><%= @recipe.title %></h1>
-<p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
+<% if current_user %>
+  <p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
+<% end %>
 <p><%= image_tag(@recipe.image) %></p>
 <h3>Prep Time: <%= @recipe.prep_time %></h3>
 <h3>Cook Time: <%= @recipe.cook_time %></h3>
