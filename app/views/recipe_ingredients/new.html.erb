@@ -3,10 +3,10 @@
   <p><%= f.label :ingredient %></p>
   <p><%= f.collection_select :ingredient_id, @ingredients, :id, :name %></p>
   <p><%= f.label :quantity %></p>
-  <p><%= f.number_field :quantity %></p>
+  <p><%= f.text_field :quantity %></p>
   <p><%= f.label :measurement %></p>
-  <p><%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'c', 'other']) %></p>
+  <p><%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'cup', 'other']) %></p>
   <p><%= f.submit 'Add Ingredient' %></p>
 <% end %>
-<%= button_to 'Create New Ingredient', new_ingredient_path %>
+<%= link_to 'Create New Ingredient', new_ingredient_path(recipe_id: @recipe.id) %>
 <%= link_to 'Done Adding Ingredients', recipe_path(@recipe) %>

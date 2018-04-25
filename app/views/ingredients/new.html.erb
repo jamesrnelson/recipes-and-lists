@@ -1,0 +1,9 @@
+<h3>Create a new ingredient here</h3>
+<%= form_tag(ingredients_path, method: :post) do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <%= label_tag :category %>
+  <%= select_tag :category, options_for_select(['Produce', 'Meat/Poultry', 'Spices/Herbs', 'Frozen', 'Dairy/Eggs', 'Dry Goods', 'Canned Goods', 'Other']) %>
+  <%= hidden_field_tag(:recipe_id, value = @recipe.id) %>
+  <%= submit_tag %>
+<% end %>
