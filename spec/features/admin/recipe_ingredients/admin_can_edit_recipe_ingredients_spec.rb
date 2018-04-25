@@ -25,20 +25,16 @@ describe 'Admin goes to recipe show' do
 
       click_on 'Edit Ingredient'
 
-      expect(current_path).to eq(edit_admin_recipe_recipe_ingredient_path(recipe_recipe_ingredient))
+      expect(page).to have_content(recipe_ingredient.measurement)
+      select(ingredient.name, from: 'recipe_ingredient[ingredient_id]')
+      fill_in 'recipe_ingredient[quantity]', with: 500
+      select('tsp', from: 'recipe_ingredient[measurement]')
+      click_on 'Update Ingredient'
 
-      fill_in 'admin_recipe[title]', with: 'New Recipe'
-      fill_in 'admin_recipe[prep_time]', with: 100
-      fill_in 'admin_recipe[cook_time]', with: 200
-      fill_in 'admin_recipe[instructions]', with: 'DIRDDINR'
-
-      click_on 'Update Recipe'
-
-      expect(current_path).to eq(recipes_path)
-      expect(page).to have_content('You have updated New Recipe')
-      expect(page).to have_content('100')
-      expect(page).to have_content('200')
-      expect(page).to_not have_content(recipe.title)
+      expect(current_path).to eq(recipe_path(recipe))
+      expect(page).to have_content("You updated #{ingredient.name}")
+      expect(page).to have_content('500')
+      expect(page).to_not have_content(recipe_ingredient.measurement)
     end
   end
 end

@@ -10,5 +10,9 @@
 <h3>Ingredients: </h3>
 <% sorted = @recipe.recipe_ingredients.sort_by { |recipe_ingredient| recipe_ingredient.ingredient.name } %>
 <% sorted.each do |recipe_ingredient| %>
-  <p><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{recipe_ingredient.ingredient.name}" %></p>
+  <p><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{recipe_ingredient.ingredient.name}" %>
+    <% if current_admin? %>
+      <%= link_to 'Edit Ingredient', edit_admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id) %>
+    <% end %>
+  </p>
 <% end %>
