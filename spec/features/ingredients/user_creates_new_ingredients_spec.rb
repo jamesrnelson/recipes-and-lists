@@ -14,9 +14,8 @@ describe 'User creates new ingredients' do
       click_on 'Add Ingredients'
 
       click_on 'Create New Ingredient'
-
-      fill_in 'ingredient[name]', with: ingredient
-      select('Produce', from: 'ingredient[category]')
+      fill_in 'Name', with: ingredient
+      select('Produce', from: 'Category')
       click_on 'Create Ingredient'
 
       expect(page).to have_content("You created #{ingredient}")

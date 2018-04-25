@@ -5,5 +5,5 @@
   <%= label_tag :category %>
   <%= select_tag :category, options_for_select(['Produce', 'Meat/Poultry', 'Spices/Herbs', 'Frozen', 'Dairy/Eggs', 'Dry Goods', 'Canned Goods', 'Other']) %>
   <%= hidden_field_tag(:recipe_id, value = @recipe.id) %>
-  <%= submit_tag %>
+  <%= submit_tag  'Create Ingredient' %>
 <% end %>
