@@ -1,7 +1,7 @@
 # Defines Recipes Controller actions
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order('updated_at DESC')
   end
 
   def new
@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :prep_time, :cook_time, :instructions, :image)
+    params.require(:recipe)
+          .permit(:title, :prep_time, :cook_time, :instructions, :image)
   end
 end
