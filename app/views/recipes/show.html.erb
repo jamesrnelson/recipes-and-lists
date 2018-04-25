@@ -13,6 +13,7 @@
   <p><%= "#{recipe_ingredient.quantity} #{recipe_ingredient.measurement} #{recipe_ingredient.ingredient.name}" %>
     <% if current_admin? %>
       <%= link_to 'Edit Ingredient', edit_admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id) %>
+      <%= link_to 'Delete Ingredient', admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id), method: 'delete', data: {confirm: "Are you sure you want to delete #{recipe_ingredient.ingredient.name} from #{@recipe.title}?"}, title: "#{recipe_ingredient.id} delete" %>
     <% end %>
   </p>
 <% end %>
