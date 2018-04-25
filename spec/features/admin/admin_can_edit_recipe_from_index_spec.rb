@@ -18,10 +18,10 @@ describe 'Admin goes to recipe index' do
 
       expect(current_path).to eq(edit_admin_recipe_path(recipe))
 
-      fill_in 'Title', with: 'New Recipe'
-      fill_in 'Prep time', with: 100
-      fill_in 'Cook time', with: 200
-      fill_in 'Instructions', with: 'DIRDDINR'
+      fill_in 'admin_recipe[title]', with: 'New Recipe'
+      fill_in 'admin_recipe[prep_time]', with: 100
+      fill_in 'admin_recipe[cook_time]', with: 200
+      fill_in 'admin_recipe[instructions]', with: 'DIRDDINR'
 
       click_on 'Update Recipe'
 

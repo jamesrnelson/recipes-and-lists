@@ -1,0 +1,16 @@
+<h1>Edit a recipe here</h1>
+
+<%= form_tag(admin_recipe_path, method: :patch, multipart: true) do %>
+  <p>Title</p>
+  <p><%= text_field_tag :"admin_recipe[title]", @recipe.title %></p>
+  <p>Prep Time</p>
+  <p><%= number_field_tag :"admin_recipe[prep_time]", @recipe.prep_time %></p>
+  <p>Cook Time</p>
+  <p><%= number_field_tag :"admin_recipe[cook_time]", @recipe.cook_time %></p>
+  <p>Instructions</p>
+  <p><%= text_area_tag :"admin_recipe[instructions]", @recipe.instructions %></p>
+  <p>Image</p>
+  <p><%= file_field_tag :"admin_recipe[image]", @recipe.image, accept: 'image/png,image/gif,image/jpeg' %>
+  <p>(Add ingredients on the next page)</p>
+  <p><%= submit_tag "Update Recipe" %></p>
+<% end %>
