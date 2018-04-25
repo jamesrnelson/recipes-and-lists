@@ -6,7 +6,11 @@
 <% end %>
 <% @recipes.each do |recipe| %>
   <p><%= image_tag asset_path recipe.image %></p>
-  <p><%= link_to recipe.title, recipe_path(recipe) %></p>
+  <p><%= link_to recipe.title, recipe_path(recipe) %>
+  <% if current_admin? %>
+    <%= link_to 'Edit', edit_admin_recipe_path %>
+  <% end %>
+  </p>
   <p>
     Prep Time: <%= recipe.prep_time %> -
     Cook Time: <%= recipe.cook_time %>

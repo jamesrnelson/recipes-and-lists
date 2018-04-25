@@ -10,7 +10,9 @@ describe 'User' do
 
     visit '/'
 
-    click_link 'Log in'
+    within 'navbar' do
+      click_link 'Log in'
+    end
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
