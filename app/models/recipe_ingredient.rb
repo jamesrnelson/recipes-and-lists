@@ -5,4 +5,6 @@ class RecipeIngredient < ApplicationRecord
 
   belongs_to :recipe
   belongs_to :ingredient
+
+  belongs_to :creator, :class_name => 'User'
 end

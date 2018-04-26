@@ -1,0 +1,16 @@
+<h1>Edit a recipe here</h1>
+
+<%= form_tag(admin_recipe_path(@recipe), method: 'put', multipart: true) do %>
+  <p>Title</p>
+  <p><%= text_field_tag :"admin_recipe[title]", value = @recipe.title %></p>
+  <p>Prep Time</p>
+  <p><%= number_field_tag :"admin_recipe[prep_time]", value = @recipe.prep_time %></p>
+  <p>Cook Time</p>
+  <p><%= number_field_tag :"admin_recipe[cook_time]", value = @recipe.cook_time %></p>
+  <p>Instructions</p>
+  <p><%= text_area_tag :"admin_recipe[instructions]", value = @recipe.instructions %></p>
+  <p>Image</p>
+  <p><%= file_field_tag :"admin_recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
+  <p>(Add ingredients on the next page)</p>
+  <p><%= submit_tag "Update Recipe" %></p>
+<% end %>

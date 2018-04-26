@@ -11,6 +11,7 @@ class RecipeIngredientsController < ApplicationController
     @ingredients = Ingredient.order(:name)
     @recipe_ingredient = RecipeIngredient.new(recipe_ingredient_params)
     @recipe_ingredient.recipe_id = params[:recipe_id]
+    @recipe_ingredient.creator_id = current_user.id
     if @recipe_ingredient.save
       flash[:success] = "You added #{@recipe_ingredient.ingredient.name}"
       redirect_to new_recipe_recipe_ingredient_path(@recipe)

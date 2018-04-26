@@ -1,7 +1,7 @@
 # Defines Recipes Controller actions
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order('updated_at DESC')
   end
 
   def new
@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.creator_id = current_user.id
     if @recipe.save
       flash[:success] = 'You created a new recipe'
       redirect_to recipe_path(@recipe)
@@ -26,6 +27,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :prep_time, :cook_time, :instructions, :image)
+    params.require(:recipe)
+          .permit(:title, :prep_time, :cook_time, :instructions, :image)
   end
 end

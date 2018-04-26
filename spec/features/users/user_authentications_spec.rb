@@ -10,7 +10,10 @@ describe 'User' do
 
     visit '/'
 
-    click_link 'Log in'
+    within '.navbar' do
+      click_link 'Log in'
+    end
+
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
@@ -28,12 +31,16 @@ describe 'User' do
 
     visit '/'
 
-    click_link 'Log in'
+    within '.navbar' do
+      click_link 'Log in'
+    end
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
 
-    click_on 'Log out'
+    within '.navbar' do
+      click_on 'Log out'
+    end
 
     expect(page).to have_content('You have logged out')
     expect(current_path).to eq(root_path)
