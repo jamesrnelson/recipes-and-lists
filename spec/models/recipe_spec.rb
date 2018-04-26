@@ -11,5 +11,6 @@ describe Recipe, type: :model do
   describe 'Relationships' do
     it { should have_many(:recipe_ingredients) }
     it { should have_many(:ingredients) }
+    it { should belong_to(:creator) }
   end
 end

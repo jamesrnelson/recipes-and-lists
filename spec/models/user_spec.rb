@@ -6,4 +6,10 @@ describe User, type: :model do
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
   end
+
+  describe 'Relationships' do
+    it { should have_many(:recipes) }
+    it { should have_many(:user_recipes) }
+    it { should have_many(:favorites) }
+  end
 end

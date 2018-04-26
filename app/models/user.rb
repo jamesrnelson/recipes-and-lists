@@ -8,4 +8,7 @@ class User < ApplicationRecord
   enum role: %w[default admin]
 
   has_many :recipes, foreign_key: 'creator_id'
+
+  has_many :user_recipes
+  has_many :favorites, class_name: 'Recipe', through: :user_recipes
 end
