@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
+  get '/basket', to: 'basket#show'
+  post '/basket', to: 'basket#create'
+  patch '/basket', to: 'basket#update'
+  post '/basket', to: 'basket#update'
+  delete '/basket', to: 'basket#destroy'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

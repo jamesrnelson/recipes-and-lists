@@ -4,5 +4,5 @@
 <h3><%= link_to 'See All Recipes', recipes_path %></h3>
 <h3>Your favorites:</h3>
 <% current_user.favorites.each do |favorite| %>
-  <p><%= link_to favorite.title, recipe_path(favorite) %></p>
+  <p><%= link_to favorite.title, recipe_path(favorite) %> <%= " - Prep time: #{favorite.prep_time} minutes - Cook time: #{favorite.cook_time} minutes" %> <%= button_to 'Add to Shopping Basket', basket_path(recipe_id: favorite.id), title: favorite.title %></p>
 <% end %>
