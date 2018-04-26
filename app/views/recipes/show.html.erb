@@ -1,10 +1,19 @@
-<h1><%= @recipe.title %></h1>
-<% if current_user %>
+<h1><%= @recipe.title %>
+  <% if current_user %>
+    <% if @recipe.creator.nil? %>
+      <%= " - Created by Unknown" %>
+    <% else %>
+      <%= " - Created by #{@recipe.creator.username}" %>
+    <% end %>
+    <% if current_admin? %>
+    <%= " - Created at #{@recipe.created_at}" %>
+    <% end %>
+</h1>
   <p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
-<% end %>
+  <% end %>
 <p><%= image_tag(@recipe.image) %></p>
-<h3>Prep Time: <%= @recipe.prep_time %></h3>
-<h3>Cook Time: <%= @recipe.cook_time %></h3>
+<h3>Prep Time: <%= @recipe.prep_time %> minutes</h3>
+<h3>Cook Time: <%= @recipe.cook_time %> minutes</h3>
 <h3>Instructions:</h3>
 <h3><%= @recipe.instructions %></h3>
 <h3>Ingredients: </h3>
@@ -14,6 +23,7 @@
     <% if current_admin? %>
       <%= link_to 'Edit Ingredient', edit_admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id) %>
       <%= link_to 'Delete Ingredient', admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id), method: 'delete', data: {confirm: "Are you sure you want to delete #{recipe_ingredient.ingredient.name} from #{@recipe.title}?"}, title: "#{recipe_ingredient.id} delete" %>
+      <%= "Added on #{recipe_ingredient.created_at}" %>
     <% end %>
   </p>
 <% end %>

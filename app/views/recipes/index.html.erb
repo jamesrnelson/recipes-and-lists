@@ -5,15 +5,20 @@
   <h3>Create an account and log in to add new recipes!</h3>
 <% end %>
 <% @recipes.each do |recipe| %>
-  <p><%= image_tag asset_path recipe.image %></p>
-  <p><%= link_to recipe.title, recipe_path(recipe) %>
+  <h2><%= link_to recipe.title, recipe_path(recipe) %>
+    <% if current_user %>
+      <% if recipe.creator.nil? %>
+        <%= " - Created by Unknown" %>
+      <% else %>
+        <%= " - Created by #{recipe.creator.username}" %>
+      <% end %>
+    <% end %>
   <% if current_admin? %>
-    <%= link_to 'Edit', edit_admin_recipe_path(recipe) %>
-    <%= link_to 'Delete', admin_recipe_path(recipe), method: 'delete', data: {confirm: "Are you sure you want to delete Recipe: #{recipe.title}?"}, title: "#{recipe.id} delete" %>
+    <%= " - Created at #{recipe.created_at}" %>
+    <p><%= link_to 'Edit', edit_admin_recipe_path(recipe) %></p>
+    <p><%= link_to 'Delete', admin_recipe_path(recipe), method: 'delete', data: {confirm: "Are you sure you want to delete Recipe: #{recipe.title}?"}, title: "#{recipe.id} delete" %></p>
   <% end %>
-  </p>
-  <p>
-    Prep Time: <%= recipe.prep_time %> -
-    Cook Time: <%= recipe.cook_time %>
-  </p>
+  <p><%= image_tag asset_path recipe.image %></p>
+  <h3><%= link_to recipe.title, recipe_path(recipe) %> </h3>
+  <p><%= "Prep Time: #{recipe.prep_time} minutes - Cook Time: #{recipe.cook_time} minutes" %></p>
 <% end %>

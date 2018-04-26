@@ -4,8 +4,8 @@ describe 'User visits recipe index' do
   context 'by clicking link in nav bar' do
     it 'should see all recipes' do
       user = create(:user)
-      recipes = create_list(:recipe, 5)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      recipes = create_list(:recipe, 5)
 
       visit dashboard_path
 

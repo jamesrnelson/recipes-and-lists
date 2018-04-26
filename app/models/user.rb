@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   enum role: %w[default admin]
+
+  has_many :recipes, foreign_key: 'creator_id'
 end

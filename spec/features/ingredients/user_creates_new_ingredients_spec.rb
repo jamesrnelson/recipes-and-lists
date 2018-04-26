@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'User creates new ingredients' do
   context 'visits recipe show page' do
     it 'should be able to create new ingredient and add it' do
-      recipe = create(:recipe)
       user = create(:user)
+      recipe = create(:recipe)
       ingredient = 'Parsley, fresh'
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
