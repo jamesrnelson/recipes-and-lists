@@ -2,7 +2,7 @@
 <% if current_user %>
   <%= link_to 'Add New Recipe', new_recipe_path %>
 <% else %>
-  <h3>Create an account and log in to add new recipes!</h3>
+  <h3>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h3>
 <% end %>
 <% @recipes.each do |recipe| %>
   <h2><%= link_to recipe.title, recipe_path(recipe) %>
@@ -12,6 +12,7 @@
       <% else %>
         <%= " - Created by #{recipe.creator.username}" %>
       <% end %>
+      <%= link_to 'Add to Favorites', user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
     <% end %>
   <% if current_admin? %>
     <%= " - Created at #{recipe.created_at}" %>

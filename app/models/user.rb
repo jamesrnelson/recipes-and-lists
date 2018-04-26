@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :recipes, foreign_key: 'creator_id'
 
   has_many :user_recipes
-  has_many :favorites, class_name: 'Recipe', through: :user_recipes
+  has_many :favorites, through: :user_recipes, source: :recipe
 end
