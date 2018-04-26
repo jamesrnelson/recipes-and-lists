@@ -11,7 +11,8 @@ describe 'Admin goes to recipe show' do
         quantity: 200,
         measurement: 'tbsp',
         recipe_id: recipe.id,
-        ingredient_id: ingredient.id
+        ingredient_id: ingredient.id,
+        creator_id: admin.id
       )
 
       allow_any_instance_of(ApplicationController)
