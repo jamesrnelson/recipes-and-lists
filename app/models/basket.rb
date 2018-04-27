@@ -11,4 +11,12 @@ class Basket
     @contents[id.to_s] ||= 0
     @contents[id.to_s] += 1
   end
+
+  def total_count
+    @contents.values.sum
+  end
+
+  def find_recipe(id_string)
+    Recipe.find(id_string.to_i)
+  end
 end

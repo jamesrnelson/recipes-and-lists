@@ -1,0 +1,5 @@
+<h3>Your Recipe Basket is almost ready to be turned into a Grocery List!</h3>
+
+<% @basket.contents.each do |recipe, quantity| %>
+  <%= link_to @basket.find_recipe(recipe).title, recipe_path(recipe) %>
+<% end %>
