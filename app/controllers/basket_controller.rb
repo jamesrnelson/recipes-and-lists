@@ -7,6 +7,10 @@ class BasketController < ApplicationController
     @basket.add_recipe(recipe.id)
     session[:basket] = @basket.contents
     flash[:success] = "You added #{recipe.title} to your recipe basket"
-    redirect_to dashboard_path
+    if current_user
+      redirect_to dashboard_path
+    else
+      redirect_to recipes_path
+    end
   end
 end

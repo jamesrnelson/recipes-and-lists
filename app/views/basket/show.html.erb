@@ -1,5 +1,15 @@
 <h3>Your Recipe Basket is almost ready to be turned into a Grocery List!</h3>
 
 <% @basket.contents.each do |recipe, quantity| %>
-  <%= link_to @basket.find_recipe(recipe).title, recipe_path(recipe) %>
+  <% found_recipe =  @basket.find_recipe(recipe) %>
+  <p><%= link_to found_recipe.title, recipe_path(recipe) %></p>
+    <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <p><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
+    <% end %>
+<% end %>
+
+<% if current_user %>
+  <%= button_to "Create Grocery List", new_ %>
+<% else %>
+  <%= button_to "Register to Checkout", login_path, class: "create-button" %>
 <% end %>
