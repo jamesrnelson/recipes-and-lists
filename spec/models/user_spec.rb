@@ -11,5 +11,6 @@ describe User, type: :model do
     it { should have_many(:recipes) }
     it { should have_many(:user_recipes) }
     it { should have_many(:favorites) }
+    it { should have_many(:grocery_lists) }
   end
 end

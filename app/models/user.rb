@@ -11,4 +11,5 @@ class User < ApplicationRecord
 
   has_many :user_recipes
   has_many :favorites, through: :user_recipes, source: :recipe
+  has_many :grocery_lists
 end

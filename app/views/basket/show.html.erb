@@ -9,7 +9,7 @@
 <% end %>
 
 <% if current_user %>
-  <%= button_to "Create Grocery List", new_ %>
+  <%= link_to "Create Grocery List", new_user_grocery_list_path(current_user) %>
 <% else %>
-  <%= button_to "Register to Checkout", login_path, class: "create-button" %>
+  <%= link_to "Register to Create a Grocery List", new_user_path %>
 <% end %>

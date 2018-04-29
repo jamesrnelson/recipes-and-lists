@@ -22,6 +22,24 @@ describe 'User' do
     expect(current_path).to eq(dashboard_path)
   end
 
+  scenario 'fails to log in' do
+    user = User.create(
+      username: 'Jimmy',
+      email: 'nelson.jimmy@gmail.com',
+      password: 'testpass'
+    )
+
+    visit '/'
+
+    within '.navbar' do
+      click_link 'Log in'
+    end
+
+    click_button 'Log in'
+
+    expect(page).to have_content('Unable to log in')
+  end
+
   scenario 'can log out' do
     user = User.create(
       username: 'Jimmy',
