@@ -19,3 +19,9 @@
 .byebug_history
 
 /coverage/*
+
+# Ignore application configuration
+/config/application.yml
+
+/localhost.crt
+/localhost.key
