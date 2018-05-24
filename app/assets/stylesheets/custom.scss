@@ -1,10 +1,115 @@
-$main_background: #EDD7BC;
-$top_bar_background: #240C44;
-$top_bar_text: #F3E9DE;
-$footer_background: #ED682C;
-$body_text: #EDD7BC;
-$nav_bar_background: #E99367;
+$main-background-color: #EDD7BC;
+$top-bar-background-color: #240C44;
+$top-bar-text-color: #F3E9DE;
+$footer-background-color: #ED682C;
+$body-text-color: #240C44;
+$nav-bar-background-color: #E99367;
+$nav-link-color: #F3E9DE;
+$header-text: 'PT Sans', sans-serif;
+$regular-text: 'Tajawal', sans-serif;
 
-.navbar {
+body {
+  background-color: $main-background-color;
+}
 
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: $top-bar-background-color;
+  margin: 0px;
+}
+
+/* Nav Bar */
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: $nav-bar-background-color;
+  margin: 0px;
+}
+
+.col-6a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16.67%;
+
+  a{
+    font-family: $regular-text;
+    font-size: 22px;
+    color: $nav-link-color;
+    text-decoration: none;
+  }
+  a:hover{
+    color: $top-bar-background-color;
+  }
+}
+
+.col-6b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16.67%;
+
+  a {
+    border: 3px solid $top-bar-background-color;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-family: $regular-text;
+    font-size: 18px;
+    color: $top-bar-background-color;
+    text-decoration: none;
+  }
+
+  a:hover{
+    border: 3px solid $nav-link-color;
+    color: $nav-link-color;
+  }
+}
+
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.cart-image-container {
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+  z-index: 1;
+
+  .cart-image {
+    position: absolute;
+    margin: auto;
+    overflow: hidden;
+    z-index: -1;
+
+    img {
+      width: 50%;
+    }
+  }
+}
+
+/* Page Content */
+
+.content {
+  padding: 16px;
+}
+
+/* stickiness with JS */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 60px;
 }
