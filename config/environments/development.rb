@@ -53,6 +53,4 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   Paperclip.options[:command_path] = '/usr/local/bin/convert'
-
-  config.force_ssl = true
 end
