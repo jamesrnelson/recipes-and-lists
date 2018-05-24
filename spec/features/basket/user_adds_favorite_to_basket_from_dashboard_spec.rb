@@ -14,11 +14,11 @@ describe 'User adds recipe to basket from dashboard' do
 
     visit dashboard_path
 
-    expect(page).to have_content('Recipe Basket: 0')
+    expect(page).to have_content('0')
 
     click_on 'Add to Recipe Basket'
 
     expect(page).to have_content("You added #{recipe.title} to your recipe basket")
-    expect(page).to have_content('Recipe Basket: 1')
+    expect(page).to have_content('1')
   end
 end
