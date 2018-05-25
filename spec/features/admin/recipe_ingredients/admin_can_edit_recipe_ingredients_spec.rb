@@ -39,3 +39,33 @@ describe 'Admin goes to recipe show' do
     end
   end
 end
+
+describe 'Admin goes to recipe show' do
+  context 'sees edit button next to each ingredient' do
+    it 'should not be able to update the recipe ingredient if no info' do
+      admin = create(:user, role: 'admin')
+      recipe = create(:recipe)
+      ingredient = create(:ingredient)
+
+      recipe_ingredient = RecipeIngredient.create(
+        quantity: 200,
+        measurement: 'tbsp',
+        recipe_id: recipe.id,
+        ingredient_id: ingredient.id,
+        creator_id: admin.id
+      )
+
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(admin)
+
+      visit recipe_path(recipe)
+
+      click_on 'Edit Ingredient'
+
+      fill_in 'recipe_ingredient[quantity]', with: nil
+      click_on 'Update Ingredient'
+
+      expect(page).to have_content('You were unable to update the ingredient')
+    end
+  end
+end

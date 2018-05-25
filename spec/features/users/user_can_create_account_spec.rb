@@ -19,3 +19,17 @@ describe 'User visits root path' do
     end
   end
 end
+
+describe 'User visits root path' do
+  context 'clicks on Create Account' do
+    it 'can not create new account without all info' do
+      visit root_path
+
+      click_on 'Create Account'
+
+      click_on 'Create Account'
+
+      expect(page).to have_content('Unable to create new account')
+    end
+  end
+end

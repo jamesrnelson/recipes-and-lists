@@ -5,11 +5,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      session[:user_id] = user.id
+    @user = User.new(user_params)
+    if @user.save
+      session[:user_id] = @user.id
       redirect_to dashboard_path
     else
+      flash[:error] = 'Unable to create new account'
       render :new
     end
   end

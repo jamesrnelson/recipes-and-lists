@@ -7,12 +7,13 @@ class Admin::RecipeIngredientsController < Admin::BaseController
   end
 
   def update
-    recipe = Recipe.find(params[:recipe_id])
-    recipe_ingredient = RecipeIngredient.find(params[:id])
-    recipe_ingredient.recipe_id = params[:recipe_id]
-    if recipe_ingredient.update(recipe_ingredient_params)
-      flash[:success] = "You updated #{recipe_ingredient.ingredient.name}"
-      redirect_to recipe_path(recipe)
+    @recipe = Recipe.find(params[:recipe_id])
+    @recipe_ingredient = RecipeIngredient.find(params[:id])
+    @recipe_ingredient.recipe_id = params[:recipe_id]
+    @ingredients = Ingredient.order(:name)
+    if @recipe_ingredient.update(recipe_ingredient_params)
+      flash[:success] = "You updated #{@recipe_ingredient.ingredient.name}"
+      redirect_to recipe_path(@recipe)
     else
       flash[:error] = 'You were unable to update the ingredient'
       render :edit

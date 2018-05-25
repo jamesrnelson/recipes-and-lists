@@ -5,9 +5,9 @@ class Admin::RecipesController < Admin::BaseController
   end
 
   def update
-    recipe = Recipe.find(params[:id])
-    if recipe.update(recipe_params)
-      flash[:success] = "You have updated #{recipe.title}"
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:success] = "You have updated #{@recipe.title}"
       redirect_to recipes_path
     else
       flash[:error] = 'You were unable to update the recipe'

@@ -2,3 +2,7 @@
 <h3><%= link_to 'Log out', logout_path %></h3>
 <h3><%= link_to 'Update Profile', edit_user_path(current_user) %></h3>
 <h3><%= link_to 'See All Recipes', recipes_path %></h3>
+<h3>Your favorites:</h3>
+<% current_user.favorites.each do |favorite| %>
+  <p><%= link_to favorite.title, recipe_path(favorite) %> <%= " - Prep time: #{favorite.prep_time} minutes - Cook time: #{favorite.cook_time} minutes" %> <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: favorite.id), title: favorite.title %></p>
+<% end %>

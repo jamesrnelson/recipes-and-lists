@@ -6,7 +6,8 @@ describe 'Admin goes to recipe index' do
       admin = create(:user, role: 'admin')
       recipe = create(:recipe)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(admin)
 
       visit recipes_path
 
@@ -30,6 +31,29 @@ describe 'Admin goes to recipe index' do
       expect(page).to have_content('100')
       expect(page).to have_content('200')
       expect(page).to_not have_content(recipe.title)
+    end
+  end
+end
+
+describe 'Admin goes to recipe index' do
+  context 'sees edit button' do
+    it 'should not be able to update if does not provide required info' do
+      admin = create(:user, role: 'admin')
+      recipe = create(:recipe)
+
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user).and_return(admin)
+
+      visit recipes_path
+
+      click_on 'Edit'
+      fill_in 'admin_recipe[title]', with: nil
+
+      expect(current_path).to eq(edit_admin_recipe_path(recipe))
+
+      click_on 'Update Recipe'
+
+      expect(page).to have_content('You were unable to update the recipe')
     end
   end
 end
