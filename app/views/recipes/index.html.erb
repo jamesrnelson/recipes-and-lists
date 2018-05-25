@@ -1,26 +1,61 @@
-<h3>All Recipes</h3>
-<% if current_user %>
-  <%= link_to 'Add New Recipe', new_recipe_path %>
-<% else %>
-  <h3>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h3>
-<% end %>
-<% @recipes.each do |recipe| %>
-  <h2><%= link_to recipe.title, recipe_path(recipe) %>
-    <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: recipe.id), title: recipe.title %>
+<div class="row">
+  <div class="col-2">
+  </div>
+  <div class="col-4">
+  </div>
+  <div class="col-4">
+    <h1>All Recipes</h1>
+  </div>
+  <div class="col-2">
     <% if current_user %>
-      <% if recipe.creator.nil? %>
-        <%= "Created by Unknown - " %>
+    <p><%= link_to 'Add New Recipe', new_recipe_path %><p>
       <% else %>
-        <%= "Created by #{recipe.creator.username} - " %>
+      <h3>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h3>
       <% end %>
-      <%= link_to 'Add to Favorites', user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
-    <% end %>
-  <% if current_admin? %>
-    <%= " - Created at #{recipe.created_at}" %>
-    <p><%= link_to 'Edit', edit_admin_recipe_path(recipe) %></p>
-    <p><%= link_to 'Delete', admin_recipe_path(recipe), method: 'delete', data: {confirm: "Are you sure you want to delete Recipe: #{recipe.title}?"}, title: "#{recipe.id} delete" %></p>
-  <% end %>
-  <p><%= image_tag asset_path recipe.image %></p>
-  <h3><%= link_to recipe.title, recipe_path(recipe) %> </h3>
-  <p><%= "Prep Time: #{recipe.prep_time} minutes - Cook Time: #{recipe.cook_time} minutes" %></p>
+  </div>
+</div>
+
+<% @recipes.each do |recipe| %>
+  <div class="row">
+    <div class="col-2">
+    </div>
+
+    <div class="col-4">
+      <div class="recipe">
+        <div class="recipe-image-container">
+          <div class="recipe-image">
+            <%= link_to image_tag(asset_path recipe.image), recipe_path(recipe) %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <h2><%= link_to recipe.title, recipe_path(recipe) %>
+        <% if recipe.creator.nil? %>
+        <%= "Created by Unknown - " %>
+        <% else %>
+        <%= "Created by #{recipe.creator.username} - " %>
+        <% end %>
+
+        <% if current_user %>
+        <%= link_to 'Add to Favorites', user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
+        <% end %>
+        <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: recipe.id), title: recipe.title %>
+        <% if current_admin? %>
+
+        <%= " - Created at #{recipe.created_at}" %>
+        <p><%= link_to 'Edit', edit_admin_recipe_path(recipe) %></p>
+        <p><%= link_to 'Delete', admin_recipe_path(recipe), method: 'delete', data: {confirm: "Are you sure you want to delete Recipe: #{recipe.title}?"}, title: "#{recipe.id} delete" %></p>
+        <% end %>
+        <p><%= "Prep Time: #{recipe.prep_time} minutes" %></p>
+        <p><%= "Cook Time: #{recipe.cook_time} minutes" %></p>
+    </div>
+
+    <div class="col_2">
+    </div>
+
+  </div>
+
+  </div>
 <% end %>
