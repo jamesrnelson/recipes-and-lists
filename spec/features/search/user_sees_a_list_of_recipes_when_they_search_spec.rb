@@ -28,9 +28,9 @@ describe 'Registered User' do
 
       visit recipes_path
 
-      fill_in 'Search', with: 'chicken'
+      fill_in 'q', with: 'chicken'
 
-      click_on 'Submit'
+      click_on 'Search'
 
       expect(page).to have_content(subject.title)
       expect(page).to have_content(subject.image)
