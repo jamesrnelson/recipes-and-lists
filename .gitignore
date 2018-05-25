@@ -19,3 +19,6 @@
 .byebug_history
 
 /coverage/*
+/localhost.crt
+/localhost.key
+/config/application.yml
