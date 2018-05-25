@@ -28,7 +28,7 @@ describe 'Registered User' do
 
       visit recipes_path
 
-      fill_in :search, with: 'chicken'
+      fill_in 'Search', with: 'chicken'
 
       click_on 'Submit'
 
