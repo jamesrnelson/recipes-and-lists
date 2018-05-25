@@ -10,7 +10,7 @@ describe 'User' do
 
     visit '/'
 
-    within '.navbar' do
+    within '#navbar' do
       click_link 'Log in'
     end
 
@@ -31,7 +31,7 @@ describe 'User' do
 
     visit '/'
 
-    within '.navbar' do
+    within '#navbar' do
       click_link 'Log in'
     end
 
@@ -49,14 +49,14 @@ describe 'User' do
 
     visit '/'
 
-    within '.navbar' do
+    within '#navbar' do
       click_link 'Log in'
     end
     fill_in 'E-mail address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
 
-    within '.navbar' do
+    within '#navbar' do
       click_on 'Log out'
     end
 
