@@ -4,7 +4,7 @@ describe 'Registered User' do
   context 'Visits recipes index and fills in search form' do
     let(:attrs) {
       {
-        label: 'Yummy Chicken',
+        label: 'Chicken Satay',
         image: 'https://www.edamam.com/web-img/ba6/ba6f66d885e4d62a98055b088a5a85a3.jpg',
         source: 'BBC Food',
         url: 'http://www.bbcgoodfood.com/recipes/3645/',
