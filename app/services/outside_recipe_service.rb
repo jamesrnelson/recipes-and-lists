@@ -4,14 +4,14 @@ class OutsideRecipeService
   end
 
   def recipe_search
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body, symbolize_names: true)[:hits]
   end
 
   private
     attr_reader :query
 
     def connection
-      Faraday.new(url: "https://api.edamam.com/search?app_id=c9c1611b&app_key=58928c59bca6df2df541c916b71a9382&q=#{query}")
+      Faraday.new(url: "https://api.edamam.com/search?app_id=#{ENV['EDAMAM_APPLICATION_ID']}&app_key=#{ENV['EDAMAM_APPLICATION_KEY']}&q=#{query}")
     end
 
     def response

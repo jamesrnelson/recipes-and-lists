@@ -11,15 +11,15 @@ describe OutsideRecipeService do
     context '#recipe_search' do
       it 'returns an array of hashes with recipe data' do
         raw_search = subject.recipe_search
-        raw_recipes = raw_search[:hits]
-        raw_recipe = raw_recipes[4]
+        raw_recipes = raw_search
+        raw_recipe = raw_recipes[4][:recipe]
 
-        expect(raw_station).to have_key :label
-        expect(raw_station).to have_key :image
-        expect(raw_station).to have_key :source
-        expect(raw_station).to have_key :url
-        expect(raw_station).to have_key :yield
-        expect(raw_station).to have_key :ingredientLines
+        expect(raw_recipe).to have_key :label
+        expect(raw_recipe).to have_key :image
+        expect(raw_recipe).to have_key :source
+        expect(raw_recipe).to have_key :url
+        expect(raw_recipe).to have_key :yield
+        expect(raw_recipe).to have_key :ingredientLines
       end
     end
   end
