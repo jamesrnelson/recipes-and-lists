@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe EdamamRecipeListing do
-  subject { EdamamRecipeListing.new('chicken') }
+describe OutsideRecipeListing do
+  subject { OutsideRecipeListing.new('chicken') }
   it 'exists' do
-    expect(subject).to be_an EdamamRecipeListing
+    expect(subject).to be_an OutsideRecipeListing
   end
 
   context 'instance methods' do
