@@ -41,6 +41,13 @@
         <% else %>
         <%= "- Created by #{recipe.creator}" %>
         <% end %>
+        <%= link_to image_tag("heart_icon.png", alt: 'heart_icon'), new_outside_recipe_path(
+                                            title: recipe.title,
+                                            prep_time: recipe.total_time/2,
+                                            cook_time: recipe.total_time/2,
+                                            instructions: recipe.instructions,
+                                            image: recipe.image
+                                          ) %>
         <p>Instructions: <%= link_to 'See the original recipe here', recipe.instructions %></p>
         <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
         <p><%= "Servings: #{recipe.servings}" %></p>

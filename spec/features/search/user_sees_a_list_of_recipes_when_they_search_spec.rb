@@ -2,24 +2,6 @@ require 'rails_helper'
 
 describe 'Registered User' do
   context 'Visits recipes index and fills in search form' do
-    # let(:attrs) {
-    #   {
-    #     label: 'Chicken Satay',
-    #     image: 'https://www.edamam.com/web-img/ba6/ba6f66d885e4d62a98055b088a5a85a3.jpg',
-    #     source: 'BBC Food',
-    #     url: 'http://www.bbcgoodfood.com/recipes/3645/',
-    #     total_time: '60',
-    #     yield: '4',
-    #     ingredient_lines: [
-    #           "100.0ml soy sauce (Kikkoman is good)",
-    #           "4.0 tbsp smooth peanut butter",
-    #           "4 skinless chicken breasts fillets"
-    #       ]
-    #   }
-    # }
-    #
-    # subject { OutsideRecipe.new(attrs) }
-
     it 'should show a list of recipes from Edamam\'s API' do
       user = create(:user)
 
