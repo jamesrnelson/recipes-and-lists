@@ -9,7 +9,7 @@ describe OutsideRecipeService do
 
   context 'instance methods' do
     context '#recipe_search' do
-      it 'returns an array of hashes with recipe data' do
+      it 'returns an array of hashes with recipe data', vcr: true do
         raw_search = subject.recipe_search
         raw_recipes = raw_search
         raw_recipe = raw_recipes[4][:recipe]

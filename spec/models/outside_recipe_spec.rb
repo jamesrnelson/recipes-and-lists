@@ -22,7 +22,7 @@ describe OutsideRecipe do
     expect(subject).to be_an OutsideRecipe
   end
 
-  it 'instance methods' do
+  context 'instance methods' do
     it '#title' do
       expect(subject.title).to eq('Chicken Satay')
     end
