@@ -37,9 +37,9 @@
     <div class="col-4">
       <h2><%= link_to recipe.title, recipe.instructions %>
         <% if recipe.creator.nil? %>
-        <%= "Created by Unknown - " %>
+        <%= "- Created by Unknown" %>
         <% else %>
-        <%= "Created by #{recipe.creator} - " %>
+        <%= "- Created by #{recipe.creator}" %>
         <% end %>
         <p>Instructions: <%= link_to 'See the original recipe here', recipe.instructions %></p>
         <p><%= "Total Time: #{recipe.total_time} minutes" %></p>

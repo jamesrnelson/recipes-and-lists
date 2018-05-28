@@ -163,7 +163,7 @@ body {
   margin-bottom: 30px;
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
     color: $top-bar-background-color;
   }
 
@@ -174,13 +174,13 @@ body {
   h2 {
     font-family: $header-text;
     color: $top-bar-background-color;
-    display: inline-block;
+    display: inline;
   }
 
   h3 {
     font-family: $header-text;
     color: $top-bar-background-color;
-    display: inline-block;
+    display: inline;
     font-size: 20px;
   }
 
@@ -244,7 +244,7 @@ body {
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 99%
 }
 
 .sticky + .content {

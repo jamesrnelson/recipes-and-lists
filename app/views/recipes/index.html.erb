@@ -37,9 +37,9 @@
     <div class="col-4">
       <h2><%= link_to recipe.title, recipe_path(recipe) %>
         <% if recipe.creator.nil? %>
-        <%= "Created by Unknown - " %>
+        <%= "- Created by Unknown" %>
         <% else %>
-        <%= "Created by #{recipe.creator.username} - " %>
+        <%= "- Created by #{recipe.creator.username}" %>
         <% end %>
 
         <% if current_user %>
