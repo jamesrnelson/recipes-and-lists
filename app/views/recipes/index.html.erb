@@ -1,23 +1,27 @@
 <div class="row">
   <div class="col-2">
+    <%= form_tag :search, method: :get %>
+    <%= text_field_tag :q %>
+    <%= submit_tag 'Search' %>
   </div>
   <div class="col-4">
-  </div>
-  <div class="col-4">
-    <h1>All Recipes</h1>
-  </div>
-  <div class="col-2">
     <% if current_user %>
     <p><%= link_to 'Add New Recipe', new_recipe_path %><p>
       <% else %>
       <h3>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h3>
       <% end %>
   </div>
+  <div class="col-4">
+    <h1>All Recipes</h1>
+  </div>
+  <div class="col-2">
+  </div>
 </div>
 
 <% @recipes.each do |recipe| %>
   <div class="row">
     <div class="col-2">
+
     </div>
 
     <div class="col-4">
@@ -33,9 +37,9 @@
     <div class="col-4">
       <h2><%= link_to recipe.title, recipe_path(recipe) %>
         <% if recipe.creator.nil? %>
-        <%= "Created by Unknown - " %>
+        <%= "- Created by Unknown" %>
         <% else %>
-        <%= "Created by #{recipe.creator.username} - " %>
+        <%= "- Created by #{recipe.creator.username}" %>
         <% end %>
 
         <% if current_user %>

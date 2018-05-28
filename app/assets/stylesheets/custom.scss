@@ -81,6 +81,7 @@ body {
 
   h1 {
     font-family: $header-text;
+    color: $top-bar-background-color;
     font-size: 35px;
   }
 }
@@ -162,7 +163,7 @@ body {
   margin-bottom: 30px;
 
   a {
-    text-decoration: none;
+    text-decoration: underline;
     color: $top-bar-background-color;
   }
 
@@ -172,20 +173,65 @@ body {
 
   h2 {
     font-family: $header-text;
-    display: inline-block;
+    color: $top-bar-background-color;
+    display: inline;
   }
 
   h3 {
     font-family: $header-text;
-    display: inline-block;
+    color: $top-bar-background-color;
+    display: inline;
     font-size: 20px;
   }
 
   p {
     font-family: $regular-text;
+    color: $top-bar-background-color;
     font-size: 18px;
   }
+
+  ul {
+    li {
+      font-family: $regular-text;
+      color: $top-bar-background-color;
+      font-size: 18px;
+    }
+  }
 }
+
+/* Search Results */
+
+.outside-recipe {
+
+}
+
+/* Basket */
+
+.col-4b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 33.33%;
+  margin-bottom: 30px;
+
+  a {
+    border: 3px solid $top-bar-background-color;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-family: $regular-text;
+    font-size: 18px;
+    color: $top-bar-background-color;
+    text-decoration: none;
+  }
+
+  a:hover{
+    border: 3px solid $footer-background-color;
+    color: $footer-background-color;
+  }
+}
+
+
 
 /* Page Content */
 
@@ -198,7 +244,7 @@ body {
 .sticky {
   position: fixed;
   top: 0;
-  width: 100%
+  width: 99%
 }
 
 .sticky + .content {

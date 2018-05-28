@@ -1,15 +1,55 @@
-<h3>Your Recipe Basket is almost ready to be turned into a Grocery List!</h3>
+<div class="row">
+  <div class="col-4">
 
-<% @basket.contents.each do |recipe, quantity| %>
-  <% found_recipe =  @basket.find_recipe(recipe) %>
-  <p><%= link_to found_recipe.title, recipe_path(recipe) %></p>
-    <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <p><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
-    <% end %>
-<% end %>
+  </div>
+  <div class="col-4">
+    <h2>Your Recipe Basket is almost ready to be turned into a Grocery List!</h2>
 
-<% if current_user %>
-  <%= link_to "Create Grocery List", new_user_grocery_list_path(current_user) %>
-<% else %>
-  <%= link_to "Register to Create a Grocery List", new_user_path %>
-<% end %>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4b">
+    <div class="button">
+      <% if current_user %>
+      <h3><%= link_to "Create Grocery List", new_user_grocery_list_path(current_user) %></h3>
+      <% else %>
+      <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
+      <% end %>
+
+    </div>
+
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <ul>
+    <% @basket.contents.each do |recipe, quantity| %>
+    <% found_recipe =  @basket.find_recipe(recipe) %>
+
+      <li><h3><%= link_to found_recipe.title, recipe_path(recipe) %></li>
+      <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
+      <li><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
+      <% end %>
+      <% end %>
+    </ul>
+
+
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>

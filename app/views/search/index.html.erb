@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-2">
+    <%= form_tag :search, method: :get %>
+    <%= text_field_tag :q %>
+    <%= submit_tag 'Search' %>
+  </div>
+  <div class="col-4">
+    <% if current_user %>
+      <p><%= link_to 'Add New Recipe', new_recipe_path %><p>
+    <% else %>
+      <h3>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h3>
+    <% end %>
+  </div>
+  <div class="col-4">
+    <h1>Search Results</h1>
+  </div>
+  <div class="col-2">
+  </div>
+</div>
+
+<% @outside_recipes.each do |recipe| %>
+  <div class="row outside-recipe">
+    <div class="col-2">
+
+    </div>
+
+    <div class="col-4">
+      <div class="recipe">
+        <div class="recipe-image-container">
+          <div class="recipe-image">
+            <%= link_to image_tag(asset_path recipe.image), recipe.instructions %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <h2><%= link_to recipe.title, recipe.instructions %>
+        <% if recipe.creator.nil? %>
+        <%= "- Created by Unknown" %>
+        <% else %>
+        <%= "- Created by #{recipe.creator}" %>
+        <% end %>
+        <p>Instructions: <%= link_to 'See the original recipe here', recipe.instructions %></p>
+        <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
+        <p><%= "Servings: #{recipe.servings}" %></p>
+        <p>Ingredients: </p>
+          <ul>
+            <% recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient %></li>
+            <% end %>
+          </ul>
+    </div>
+
+    <div class="col_2">
+    </div>
+
+  </div>
+
+  </div>
+<% end %>

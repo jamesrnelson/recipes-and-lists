@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -37,7 +39,6 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'figaro'
   gem 'launchy'
   gem 'pry'
   gem 'rspec-rails'
@@ -49,6 +50,11 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
