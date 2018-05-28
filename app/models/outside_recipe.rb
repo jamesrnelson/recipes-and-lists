@@ -7,8 +7,8 @@ class OutsideRecipe
     @image = attrs[:recipe][:image]
     @creator = attrs[:recipe][:source]
     @instructions = attrs[:recipe][:url]
-    @total_time = attrs[:recipe][:total_time]
+    @total_time = attrs[:recipe][:totalTime]
     @servings = attrs[:recipe][:yield]
-    @ingredients = attrs[:recipe][:ingredient_lines]
+    @ingredients = attrs[:recipe][:ingredientLines]
   end
 end

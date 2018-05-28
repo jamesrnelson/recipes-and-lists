@@ -5,7 +5,7 @@ class OutsideRecipeListing
 
   def all_recipes
     raw_recipes = service.recipe_search
-    raw_recipes.each do |recipe|
+    raw_recipes.map do |recipe|
       OutsideRecipe.new(recipe)
     end
   end

@@ -8,9 +8,9 @@ describe OutsideRecipe do
         image: 'https://www.edamam.com/web-img/ba6/ba6f66d885e4d62a98055b088a5a85a3.jpg',
         source: 'BBC Food',
         url: 'http://www.bbcgoodfood.com/recipes/3645/',
-        total_time: '60',
+        totalTime: '60',
         yield: '4',
-        ingredient_lines: [
+        ingredientLines: [
           "100.0ml soy sauce (Kikkoman is good)",
           "4.0 tbsp smooth peanut butter",
           "4 skinless chicken breasts fillets"

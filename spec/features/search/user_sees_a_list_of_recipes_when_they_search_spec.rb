@@ -37,7 +37,7 @@ describe 'Registered User' do
 
       expect(page).to have_css('.outside_recipe', count: 10)
 
-      within(first('.outisde_recipe')) do
+      within(first('.outside-recipe')) do
         expect(page).to have_content('Teriyaki Chicken')
         expect(page).to have_content("https://www.edamam.com/web-img/262/262b4353ca25074178ead2a07cdf7dc1.jpg")
         expect(page).to have_content("David Lebovitz")

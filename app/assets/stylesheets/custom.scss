@@ -192,11 +192,17 @@ body {
 
   ul {
     li {
-      list-style: none;
       font-family: $regular-text;
       color: $top-bar-background-color;
+      font-size: 18px;
     }
   }
+}
+
+/* Search Results */
+
+.outside-recipe {
+
 }
 
 /* Basket */
