@@ -35,13 +35,12 @@ describe 'Registered User' do
 
       click_on 'Search'
 
-      expect(page).to have_css('.outside_recipe', count: 10)
+      expect(page).to have_css('.outside-recipe', count: 10)
 
       within(first('.outside-recipe')) do
         expect(page).to have_content('Teriyaki Chicken')
-        expect(page).to have_content("https://www.edamam.com/web-img/262/262b4353ca25074178ead2a07cdf7dc1.jpg")
         expect(page).to have_content("David Lebovitz")
-        expect(page).to have_content("http://www.davidlebovitz.com/2012/12/chicken-teriyaki-recipe-japanese-farm-food/")
+        expect(page).to have_content("See the original recipe here")
         expect(page).to have_content(0)
         expect(page).to have_content(6)
         expect(page).to have_content("1/2 cup (125ml) mirin")
