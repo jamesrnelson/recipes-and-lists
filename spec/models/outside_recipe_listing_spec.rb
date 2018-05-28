@@ -8,10 +8,11 @@ describe OutsideRecipeListing do
 
   context 'instance methods' do
     context '#all_recipes' do
-      it 'returns a collection of all recipes' do
+      it 'returns a collection of all recipes', vcr: true do
         expect(subject).to respond_to :all_recipes
-        subject.all_recipes.each do |recipe|
-          expect(recipe).to be_an EdamamRecipe
+        recipes = subject.all_recipes
+        recipes.each do |recipe|
+          expect(recipe).to be_an OutsideRecipe
         end
       end
     end
