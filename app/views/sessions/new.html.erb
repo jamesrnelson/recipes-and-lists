@@ -2,7 +2,7 @@
 <script type="text/javascript">
 
   window.onAmazonLoginReady = function() {
-    amazon.Login.setClientId(ENV['AMAZON_CLIENT_ID']);
+    amazon.Login.setClientId("amzn1.application-oa2-client.c4acf8675a5c4f73bccbede476545fa6");
   };
   (function(d) {
     var a = d.createElement('script'); a.type = 'text/javascript';
@@ -18,7 +18,7 @@
 
   </div>
   <div class="col-4">
-    <h3>Log in with Appetite account</h3>
+    <h3>Log in with your Appetite account</h3>
   </div>
   <div class="col-4">
     <h3>or Log in with Amazon</h3>
@@ -62,7 +62,7 @@
 
   document.getElementById('LoginWithAmazon').onclick = function() {
     options = { scope : 'profile' };
-    amazon.Login.authorize(options, ENV['BASE_URL']);
+    amazon.Login.authorize(options, "https://127.0.0.1:3000/handle_login.php");
     return false;
   };
 
