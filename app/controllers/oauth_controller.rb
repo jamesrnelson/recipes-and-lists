@@ -6,8 +6,6 @@ require "uri"
 class OauthController < ApplicationController
 
   def new
-
-    # verify that the access token belongs to us
     uri = URI.parse("https://api.amazon.com/auth/o2/tokeninfo?access_token=" + URI.encode(params[:access_token]))
     req = Net::HTTP::Get.new(uri.request_uri)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -41,7 +39,6 @@ class OauthController < ApplicationController
         password: random_password,
         amazon_id: decode['user_id']
       )
-      binding.pry
       session[:user_id] = user.id
     end
     redirect_to dashboard_path

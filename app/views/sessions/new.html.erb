@@ -62,7 +62,7 @@
 
   document.getElementById('LoginWithAmazon').onclick = function() {
     options = { scope : 'profile' };
-    amazon.Login.authorize(options, "https://127.0.0.1:3000/handle_login.php");
+    amazon.Login.authorize(options, "https://damp-escarpment-50077.herokuapp.com/handle_login.php");
     return false;
   };
 
