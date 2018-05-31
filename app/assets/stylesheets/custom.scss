@@ -261,7 +261,31 @@ body {
 .box {
   padding: 15px;
   border: 2px solid $top-bar-background-color;
-  margin: 5px;  
+  margin: 5px;
+}
+
+/* Grocery List Checklist */
+
+.items {
+  display: flex;
+  flex-direction: column;
+  font-family: $regular-text;
+}
+
+.done {
+  order: 1;
+}
+
+input:checked + label {
+  order: 2;
+}
+
+.undone {
+  order: 3;
+}
+
+label {
+  order: 4;
 }
 
 /* Page Content */
