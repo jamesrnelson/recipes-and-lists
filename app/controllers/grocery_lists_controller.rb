@@ -3,7 +3,7 @@ class GroceryListsController < ApplicationController
   def index
     if current_user
       user = User.find(current_user.id)
-      @grocery_lists = user.grocery_lists
+      @grocery_lists = user.grocery_lists.order("created_at DESC")
     else
       flash[:error] = "Create an account in order to create your own grocery lists."
       redirect_to recipes_path

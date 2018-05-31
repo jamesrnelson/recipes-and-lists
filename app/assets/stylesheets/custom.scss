@@ -256,6 +256,14 @@ body {
   color: $footer-background-color;
 }
 
+/* Add a box around content */
+
+.box {
+  padding: 15px;
+  border: 2px solid $top-bar-background-color;
+  margin: 5px;  
+}
+
 /* Page Content */
 
 .content {

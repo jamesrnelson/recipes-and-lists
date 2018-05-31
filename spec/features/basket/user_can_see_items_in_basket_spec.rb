@@ -20,7 +20,6 @@ describe 'User adds recipe to basket from dashboard' do
     click_on 'Add to Recipe Basket'
 
     visit basket_path
-save_and_open_page
     expect(page).to have_content(recipe.title)
     expect(page).to have_content(recipe_ingredient.quantity)
     expect(page).to have_content(recipe_ingredient.measurement)

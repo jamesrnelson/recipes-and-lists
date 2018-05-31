@@ -3,8 +3,9 @@
 
   </div>
   <div class="col-4">
-    <h2>Your Grocery Lists</h2>
-
+    <div class="row">
+      <h2>Your Grocery Lists</h2>
+    </div>
   </div>
   <div class="col-4">
 
@@ -15,9 +16,12 @@
   <div class="col-4">
 
   </div>
-  <div class="col-4">
-    <p><% @grocery_lists.each do |grocery_list| %>
-      <%= link_to grocery_list.title, grocery_list_path(grocery_list) %> - <%= grocery_list.created_at %></p>
+  <div class="col-4b">
+    <% @grocery_lists.each do |grocery_list| %>
+      <div class="box">
+        <p><%= link_to grocery_list.title, grocery_list_path(grocery_list) %></p>
+        <p><%= grocery_list.created_at %></p>
+      </div>
     <% end %>
   </div>
   <div class="col-4">
