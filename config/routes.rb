@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create show edit update], shallow: true
   resources :ingredients, only: %i[new create]
   resources :user_recipes, only: %i[create destroy]
-  resources :user_grocery_lists, only: %i[index new create]
+  resources :user_grocery_lists, only: %i[index create show]
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'

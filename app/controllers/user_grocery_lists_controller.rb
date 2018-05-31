@@ -10,7 +10,7 @@ class UserGroceryListsController < ApplicationController
       flash[:success] = 'Successfully created your new grocery list'
       @basket.clear
       session[:basket] = @basket.contents
-      redirect_to dashboard_path
+      redirect_to user_grocery_lists_path
     else
       flash[:error] = 'You must add a title to your grocery list'
       redirect_to basket_path

@@ -21,19 +21,12 @@ describe 'User adds recipes to Recipe Basket' do
       click_on 'Add to Recipe Basket'
 
       visit basket_path
+      fill_in 'grocery_list[title]', with: 'My first list!'
 
       click_on 'Create Grocery List'
 
-      fill_in 'Title', with: 'My first list!'
-
-      click_on 'Create Grocery List'
-
-      expect(current_path).to eq(user_grocery_list_path(user))
+      expect(current_path).to eq(user_grocery_lists_path)
       expect(page).to have_content('My first list!')
-      expect(page).to have_content(ingredient.category)
-      expect(page).to have_content(ingredient.name)
-      expect(page).to have_content(recipe_ingredient.quantity)
-      expect(page).to have_content(recipe_ingredient.measurement)
     end
   end
 end

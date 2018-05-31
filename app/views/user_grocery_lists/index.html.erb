@@ -16,9 +16,8 @@
 
   </div>
   <div class="col-4">
-    <% @grocery_lists.each do |grocery_list| %>
-      <%= link_to grocery_list.title %>
-      <%= grocery_list.created_at %>
+    <p><% @grocery_lists.each do |grocery_list| %>
+      <%= link_to grocery_list.title, user_grocery_list_path(grocery_list) %> - <%= grocery_list.created_at %></p>
     <% end %>
   </div>
   <div class="col-4">
