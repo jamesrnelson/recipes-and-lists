@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-4">
+    <h2><%= @grocery_list.title %></h2>
+
+  </div>
+  <div class="col-4">
+    <h2><%= @grocery_list.date %></h2>
+  </div>
+
+  <div class="col-2">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-2">
+
+  </div>
+  <div class="col-4">
+    <h3>Recipes</h3>
+    <ul>
+      <% @grocery_list.recipes.each do |recipe| %>
+      <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
+
+  </div>
+  <div class="col-4">
+    <h3>Ingredients</h3>
+    <ul>
+      <% @grocery_list.all_ingredients.each do |ingredient| %>
+          <li><%= ingredient %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="col-2">
+
+  </div>
+</div>
