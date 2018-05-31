@@ -1,6 +1,8 @@
 # Defines Basket Controller Actions
 class BasketController < ApplicationController
-  def show; end
+  def show
+    binding.pry
+  end
 
   def create
     recipe = Recipe.find(params[:recipe_id])

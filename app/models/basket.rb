@@ -19,4 +19,19 @@ class Basket
   def find_recipe(id_string)
     Recipe.find(id_string.to_i)
   end
+
+  def remove(id)
+    @contents.delete(id)
+  end
+
+  def checkout(grocery_list_params)
+    grocery_list = @current_user.grocery_lists.new(title: grocery_list_params[:title])
+      if grocery_list.save
+        @contents.each do |recipe, quantity|
+          grocery_list.grocery_list_recipes.create(grocery_list_id: grocery_list.id, recipe_id: recipe.id)
+        end
+      else
+        false
+      end
+    end
 end
