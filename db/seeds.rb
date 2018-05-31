@@ -1,6 +1,4 @@
-Recipe.destroy_all
-RecipeIngredient.destroy_all
-Ingredient.destroy_all
+user = User.create(username: 'Default', email: 'default@email.com', password: 'password')
 
 ingredients = [
   ['Garlic', 'Produce'],
@@ -91,19 +89,20 @@ recipe_titles = [
 ]
 
 recipe_titles.each do |title|
-  Recipe.create(title: title, prep_time: rand(5..60), cook_time: rand(5..60), instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+  user.recipes.create(title: title, prep_time: rand(5..60), cook_time: rand(5..60), instructions: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 end
 
 recipes = Recipe.all
+ingredients = Ingredient.all
 measurements = ['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'cup', 'other']
 
 recipes.each do |recipe|
   7.times do
-    RecipeIngredient.create(
-      recipe: recipe,
-      ingredient: Ingredient.all.sample,
+    recipe.recipe_ingredients.create(
+      ingredient_id: ingredients.sample.id,
       measurement: measurements.sample,
-      quantity: rand(1..10)
+      quantity: rand(1..10),
+      creator_id: user.id
     )
   end
 end

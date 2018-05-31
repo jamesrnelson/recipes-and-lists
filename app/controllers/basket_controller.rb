@@ -1,7 +1,6 @@
 # Defines Basket Controller Actions
 class BasketController < ApplicationController
   def show
-    binding.pry
   end
 
   def create

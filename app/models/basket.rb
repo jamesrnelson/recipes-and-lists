@@ -26,12 +26,16 @@ class Basket
 
   def checkout(grocery_list_params)
     grocery_list = @current_user.grocery_lists.new(title: grocery_list_params[:title])
-      if grocery_list.save
-        @contents.each do |recipe, quantity|
-          grocery_list.grocery_list_recipes.create(grocery_list_id: grocery_list.id, recipe_id: recipe.id)
-        end
-      else
-        false
+    if grocery_list.save
+      @contents.each do |recipe_id, quantity|
+        grocery_list.grocery_list_recipes.create(grocery_list_id: grocery_list.id, recipe_id: recipe_id.to_i)
       end
+    else
+      false
     end
+  end
+
+  def clear
+    @contents = Hash.new(0)
+  end
 end

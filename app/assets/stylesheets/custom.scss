@@ -191,11 +191,13 @@ body {
   }
 
   ul {
+
     li {
       font-family: $regular-text;
       color: $top-bar-background-color;
       font-size: 18px;
     }
+
   }
 }
 
@@ -215,6 +217,12 @@ body {
   flex-basis: 33.33%;
   margin-bottom: 30px;
 
+  p {
+    font-family: $regular-text;
+    color: $top-bar-background-color;
+    font-size: 18px;
+  }
+
   a {
     border: 3px solid $top-bar-background-color;
     border-radius: 10px;
@@ -231,7 +239,22 @@ body {
   }
 }
 
+.button {
+  border: 3px solid $top-bar-background-color;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-family: $regular-text;
+  font-size: 18px;
+  color: $top-bar-background-color;
+  background-color: $main-background-color;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+.button input:hover {
+  border: 3px solid $footer-background-color;
+  color: $footer-background-color;
+}
 
 /* Page Content */
 

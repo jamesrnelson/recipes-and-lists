@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <h2>Your Grocery Lists</h2>
+
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <% @grocery_lists.each do |grocery_list| %>
+      <%= link_to grocery_list.title %>
+      <%= grocery_list.created_at %>
+    <% end %>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
