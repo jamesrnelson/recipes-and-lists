@@ -1,8 +1,13 @@
 # Defines User Grocery List Controller Actions
-class UserGroceryListsController < ApplicationController
+class GroceryListsController < ApplicationController
   def index
-    user = User.find(current_user.id)
-    @grocery_lists = user.grocery_lists
+    if current_user
+      user = User.find(current_user.id)
+      @grocery_lists = user.grocery_lists
+    else
+      flash[:error] = "Create an account in order to create your own grocery lists."
+      redirect_to recipes_path
+    end
   end
 
   def create
@@ -10,11 +15,16 @@ class UserGroceryListsController < ApplicationController
       flash[:success] = 'Successfully created your new grocery list'
       @basket.clear
       session[:basket] = @basket.contents
-      redirect_to user_grocery_lists_path
+      redirect_to grocery_lists_path
     else
       flash[:error] = 'You must add a title to your grocery list'
       redirect_to basket_path
     end
+  end
+
+  def show
+    user = User.find(current_user.id)
+    @grocery_list = user.grocery_lists.find(params[:id])
   end
 
   private

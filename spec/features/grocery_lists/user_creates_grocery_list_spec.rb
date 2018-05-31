@@ -25,7 +25,7 @@ describe 'User adds recipes to Recipe Basket' do
 
       click_on 'Create Grocery List'
 
-      expect(current_path).to eq(user_grocery_lists_path)
+      expect(current_path).to eq(grocery_lists_path)
       expect(page).to have_content('My first list!')
     end
   end
