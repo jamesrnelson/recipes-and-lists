@@ -270,22 +270,30 @@ body {
   display: flex;
   flex-direction: column;
   font-family: $regular-text;
+
+  h3 {
+    font-family: $header-text;
+  }
 }
 
 .done {
-  order: 1;
-}
-
-input:checked + label {
-  order: 2;
-}
-
-.undone {
   order: 3;
 }
 
-label {
+.ingredient-item {
+
+}
+
+input:checked + .ingredient-item {
   order: 4;
+}
+
+.undone {
+  order: 1;
+}
+
+label {
+  order: 2;
 }
 
 /* Page Content */

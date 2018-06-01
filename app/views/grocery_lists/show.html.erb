@@ -19,7 +19,7 @@
   <div class="col-2">
 
   </div>
-  <div class="col-4">
+  <div class="col-4 items">
     <h3>Recipes</h3>
     <ul>
       <% @grocery_list.recipes.each do |recipe| %>
@@ -31,11 +31,11 @@
   <div class="items">
     <h3>Ingredients</h3>
       <% @grocery_list.all_ingredients.each do |ingredient| %>
-      <input id="<%=ingredient%>" type="checkbox">
-      <label for="<%=ingredient%>"><%= ingredient %></label>
+      <div class="ingredient-item">
+        <%= check_box_tag :ingredient  %>
+        <%= label_tag ingredient %>
+      </div>
       <% end %>
-    <h2 class="undone" aria-hidden="true">Not Done</h2>
-    <h2 class="done" aria-hidden="true">Done</h2>
   </div>
 
   <div class="col-2">
