@@ -33,7 +33,7 @@
       <% @grocery_list.all_ingredients.each do |ingredient| %>
       <div class="ingredient-item">
         <%= check_box_tag :ingredient  %>
-        <%= label_tag ingredient %>
+        <%= label_tag "#{ingredient.name} - #{ingredient.quantity} #{ingredient.measurement}" %>
       </div>
       <% end %>
   </div>
