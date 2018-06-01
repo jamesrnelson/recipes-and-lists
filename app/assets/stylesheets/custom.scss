@@ -191,11 +191,13 @@ body {
   }
 
   ul {
+
     li {
       font-family: $regular-text;
       color: $top-bar-background-color;
       font-size: 18px;
     }
+
   }
 }
 
@@ -215,6 +217,12 @@ body {
   flex-basis: 33.33%;
   margin-bottom: 30px;
 
+  p {
+    font-family: $regular-text;
+    color: $top-bar-background-color;
+    font-size: 18px;
+  }
+
   a {
     border: 3px solid $top-bar-background-color;
     border-radius: 10px;
@@ -231,7 +239,62 @@ body {
   }
 }
 
+.button {
+  border: 3px solid $top-bar-background-color;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-family: $regular-text;
+  font-size: 18px;
+  color: $top-bar-background-color;
+  background-color: $main-background-color;
+  text-decoration: none;
+  cursor: pointer;
+}
 
+.button input:hover {
+  border: 3px solid $footer-background-color;
+  color: $footer-background-color;
+}
+
+/* Add a box around content */
+
+.box {
+  padding: 15px;
+  border: 2px solid $top-bar-background-color;
+  margin: 5px;
+}
+
+/* Grocery List Checklist */
+
+.items {
+  display: flex;
+  flex-direction: column;
+  font-family: $regular-text;
+
+  h3 {
+    font-family: $header-text;
+  }
+}
+
+.done {
+  order: 3;
+}
+
+.ingredient-item {
+
+}
+
+input:checked + .ingredient-item {
+  order: 4;
+}
+
+.undone {
+  order: 1;
+}
+
+label {
+  order: 2;
+}
 
 /* Page Content */
 

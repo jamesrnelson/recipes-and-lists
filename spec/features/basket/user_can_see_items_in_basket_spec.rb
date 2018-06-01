@@ -5,11 +5,11 @@ describe 'User adds recipe to basket from dashboard' do
     user = create(:user)
     recipe = create(:recipe)
     ingredient = create(:ingredient)
-    RecipeIngredient.new(
+    recipe_ingredient = recipe.recipe_ingredients.create(
       ingredient_id: ingredient.id,
-      recipe_id: recipe.id,
       quantity: 3,
-      measurement: 'tbsp'
+      measurement: 'tbsp',
+      creator_id: user.id
     )
 
     allow_any_instance_of(ApplicationController)
@@ -20,7 +20,6 @@ describe 'User adds recipe to basket from dashboard' do
     click_on 'Add to Recipe Basket'
 
     visit basket_path
-
     expect(page).to have_content(recipe.title)
     expect(page).to have_content(recipe_ingredient.quantity)
     expect(page).to have_content(recipe_ingredient.measurement)

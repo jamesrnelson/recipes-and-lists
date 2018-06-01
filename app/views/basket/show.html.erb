@@ -3,7 +3,7 @@
 
   </div>
   <div class="col-4">
-    <h2>Your Recipe Basket is almost ready to be turned into a Grocery List!</h2>
+    <h2>Turn Your Recipe Basket into a Grocery List Here</h2>
 
   </div>
   <div class="col-4">
@@ -16,40 +16,41 @@
 
   </div>
   <div class="col-4b">
-    <div class="button">
-      <% if current_user %>
-      <h3><%= link_to "Create Grocery List", new_user_grocery_list_path(current_user) %></h3>
-      <% else %>
-      <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
+    <% if current_user %>
+      <%= form_tag grocery_lists_path(current_user) do %>
+        <p>Grocery List Title:</p>
+        <p><%= text_field_tag :'grocery_list[title]', nil, size: 30 %></p>
+        <p><%= submit_tag "Create Grocery List", class: 'button' %></p>
       <% end %>
-
-    </div>
-
+    <% else %>
+    <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
+    <% end %>
   </div>
   <div class="col-4">
 
   </div>
 </div>
 
-<div class="row">
-  <div class="col-4">
 
-  </div>
-  <div class="col-4">
-    <ul>
     <% @basket.contents.each do |recipe, quantity| %>
     <% found_recipe =  @basket.find_recipe(recipe) %>
+    <div class="row">
+      <div class="col-4">
 
-      <li><h3><%= link_to found_recipe.title, recipe_path(recipe) %></li>
-      <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
-      <li><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
-      <% end %>
-      <% end %>
-    </ul>
+      </div>
+      <div class="col-4">
+        <div class="box">
+          <h3><%= link_to found_recipe.title, recipe_path(recipe) %></h3>
+          <ul>
+            <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
+            <li><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
+              <% end %>
+            </ul>
 
+        </div>
+      </div>
+      <div class="col-4">
 
-  </div>
-  <div class="col-4">
-
-  </div>
-</div>
+      </div>
+    </div>
+          <% end %>
