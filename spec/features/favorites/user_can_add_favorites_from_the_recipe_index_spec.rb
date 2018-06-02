@@ -13,7 +13,9 @@ describe 'User visits recipe index' do
 
       expect(page).to have_content(recipe.title)
 
-      click_on 'Add to Favorites'
+      within '.recipe-item' do
+        find(:xpath, "//a/img[@alt='heart_icon']/..").click
+      end
 
       expect(page).to have_content("You have added #{recipe.title} to your favorites")
       expect(current_path).to eq(recipes_path)

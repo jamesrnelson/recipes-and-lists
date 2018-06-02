@@ -207,27 +207,8 @@ body {
 
 }
 
-.outside-recipe-title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid $top-bar-background-color;
-  border-radius: 10px;
-  padding: 10px 15px;
+.recipe-item
 
-  a {
-    font-family: $regular-text;
-    font-size: 18px;
-    color: $top-bar-background-color;
-    text-decoration: none;
-  }
-
-  .outside-recipe-title:hover {
-    border: 3px solid $footer-background-color;
-    color: $footer-background-color;
-  }
-}
 
 
 /* Basket */
@@ -299,7 +280,7 @@ body {
   width: 300px;
   margin: 5px;
 
-  
+
 }
 
 /* Grocery List Checklist */

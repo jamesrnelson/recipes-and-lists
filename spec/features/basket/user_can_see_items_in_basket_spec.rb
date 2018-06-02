@@ -17,7 +17,9 @@ describe 'User adds recipe to basket from dashboard' do
 
     visit recipes_path
 
-    click_on 'Add to Recipe Basket'
+    within '.recipe-item' do
+      find(:xpath, "//a/img[@alt='add to basket']/..").click
+    end
 
     visit basket_path
     expect(page).to have_content(recipe.title)

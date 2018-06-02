@@ -8,12 +8,12 @@ describe 'User' do
       allow_any_instance_of(ApplicationController)
         .to receive(:current_user).and_return(user)
 
-      stub_request(:get, "https://api.edamam.com/search?app_id=#{ENV['EDAMAM_APPLICATION_ID']}&app_key=#{ENV['EDAMAM_APPLICATION_KEY']}&q=chicken").
-        to_return(status: 200, body: File.read('./spec/fixtures/edamam_chicken_recipes.json'))
+      stub_request(:get, "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=hominy").
+        to_return(status: 200, body: File.read('./spec/fixtures/spoonacular_hominy_recipes.json'))
 
       visit recipes_path
 
-      fill_in 'q', with: 'chicken'
+      fill_in 'q', with: 'hominy'
 
       click_on 'Search'
 
@@ -21,7 +21,7 @@ describe 'User' do
         find(:xpath, "//a/img[@alt='heart_icon']/..").click
       end
 
-      expect(page).to have_content("You added Teriyaki Chicken to your favorites.")
+      expect(page).to have_content("You added Spicy Black Bean, Hominy and Kale Stew to your favorites.")
     end
   end
 end

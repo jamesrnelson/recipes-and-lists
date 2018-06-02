@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OutsideRecipeListing do
-  subject { OutsideRecipeListing.new('chicken') }
+  subject { OutsideRecipeListing.new('hominy') }
   it 'exists' do
     expect(subject).to be_an OutsideRecipeListing
   end
