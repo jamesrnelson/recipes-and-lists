@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :ingredients, only: %i[new create]
   resources :user_recipes, only: %i[create destroy]
   resources :grocery_lists, only: %i[index new create show]
+  resources :conversion, only: %i[create]
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'

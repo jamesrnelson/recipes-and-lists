@@ -37,9 +37,9 @@
     <div class="col-4 outside-recipe">
         <div class="box">
             <h2><%= link_to recipe.title, "/search/#{recipe.spoonacular_id}" %></h2>
-        <div class="row">
+        <!-- <div class="row">
           <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
-        </div>
+        </div> -->
           <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
           <p><%= "Servings: #{recipe.servings}" %></p>
         </div>

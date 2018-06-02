@@ -38,13 +38,13 @@
       <div class="col-4">
         <h2><%= link_to recipe.title, recipe_path(recipe) %>
           <% if recipe.creator.nil? %>
-          <%= "- Created by Unknown" %>
+          <%= "- Added by Unknown" %>
           <% else %>
-          <%= "- Created by #{recipe.creator.username}" %>
+          <%= "- Added by #{recipe.creator.username}" %>
           <% end %>
 
           <% if current_user %>
-          <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }, origin: 'recipes index'), method: 'post' %>
+          <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
           <% end %>
           <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: recipe.id), title: recipe.title, method: :post %>
           <% if current_admin? %>

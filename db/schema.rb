@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180529160051) do
+ActiveRecord::Schema.define(version: 20180602224033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20180529160051) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.bigint "creator_id"
+    t.string "outside_recipe_id"
+    t.string "servings"
     t.index ["creator_id"], name: "index_recipes_on_creator_id"
   end
 
