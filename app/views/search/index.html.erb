@@ -34,13 +34,15 @@
       </div>
     </div>
 
-    <div class="col-4b">
-      <h2><%= link_to recipe.title, "/search/#{recipe.spoonacular_id}" %></h2>
-      <div class="row">
-        <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
-      </div>
-        <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
-        <p><%= "Servings: #{recipe.servings}" %></p>
+    <div class="col-4">
+        <div class="box">
+            <h2><%= link_to recipe.title, "/search/#{recipe.spoonacular_id}" %></h2>
+        <div class="row">
+          <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
+        </div>
+          <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
+          <p><%= "Servings: #{recipe.servings}" %></p>
+        </div>
     </div>
 
     <div class="col_2">
