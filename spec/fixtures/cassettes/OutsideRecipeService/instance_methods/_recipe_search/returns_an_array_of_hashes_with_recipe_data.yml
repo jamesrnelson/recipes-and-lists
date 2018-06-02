@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=chicken
+    uri: https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=hominy
     body:
       encoding: US-ASCII
       string: ''
@@ -34,29 +34,38 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Sat, 02 Jun 2018 13:38:50 GMT
+      - Sat, 02 Jun 2018 14:03:30 GMT
       Server:
       - Mashape/5.0.6
       X-Ratelimit-Requests-Limit:
       - '5000'
       X-Ratelimit-Requests-Remaining:
-      - '4931'
+      - '4927'
       X-Ratelimit-Results-Limit:
       - '5000'
       X-Ratelimit-Results-Remaining:
-      - '4924'
+      - '4922'
       X-Ratelimit-Tinyrequests-Limit:
       - '5000'
       X-Ratelimit-Tinyrequests-Remaining:
       - '5000'
       Content-Length:
-      - '627'
+      - '750'
       Connection:
       - keep-alive
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        eyJyZXN1bHRzIjpbeyJpZCI6NDg1MzY1LCJ0aXRsZSI6IkNoaWNrZW4gU3Bpbm9jY29saSDigJMgQnJlYWRlZCBTdHVmZmVkIENoaWNrZW4gQnJlYXN0IFdpdGggU3BpbmFjaCwgQnJvY2NvbGkgYW5kIENoZWVzZSIsInJlYWR5SW5NaW51dGVzIjo2NSwic2VydmluZ3MiOjQsImltYWdlIjoiY2hpY2tlbi1zcGlub2Njb2xpLWJyZWFkZWQtc3R1ZmZlZC1jaGlja2VuLWJyZWFzdC13aXRoLXNwaW5hY2gtYnJvY2NvbGktYW5kLWNoZWVzZS00ODUzNjUuanBnIiwiaW1hZ2VVcmxzIjpbImNoaWNrZW4tc3Bpbm9jY29saS1icmVhZGVkLXN0dWZmZWQtY2hpY2tlbi1icmVhc3Qtd2l0aC1zcGluYWNoLWJyb2Njb2xpLWFuZC1jaGVlc2UtNDg1MzY1LmpwZyJdfSx7ImlkIjoxMDc4NzgsInRpdGxlIjoiR2FybGljIENoaWNrZW4iLCJyZWFkeUluTWludXRlcyI6NDUsInNlcnZpbmdzIjo0LCJpbWFnZSI6ImdhcmxpYy1jaGlja2VuLTItMTA3ODc4LnBuZyIsImltYWdlVXJscyI6WyJnYXJsaWMtY2hpY2tlbi0yLTEwNzg3OC5wbmciLCJnYXJsaWNfY2hpY2tlbi0xMDc4NzguanBnIl19LHsiaWQiOjExMDQzNCwidGl0bGUiOiJDaGlja2VuIERpdmFuIiwicmVhZHlJbk1pbnV0ZXMiOjUwLCJzZXJ2aW5ncyI6NiwiaW1hZ2UiOiJjaGlja2VuLWRpdmFuLTExMDQzNC5qcGciLCJpbWFnZVVybHMiOlsiY2hpY2tlbi1kaXZhbi0xMTA0MzQuanBnIl19LHsiaWQiOjEyOTM4MywidGl0bGUiOiJDaGlja2VuIFdpdGggQ3JhbmJlcnJpZXMiLCJyZWFkeUluTWludXRlcyI6NDUsInNlcnZpbmdzIjo0LCJpbWFnZSI6ImNoaWNrZW4td2l0aC1jcmFuYmVycmllcy0yLTEyOTM4My5qcGciLCJpbWFnZVVybHMiOlsiY2hpY2tlbi13aXRoLWNyYW5iZXJyaWVzLTItMTI5MzgzLmpwZyJdfSx7ImlkIjoxMzY4MDQsInRpdGxlIjoiVHVzY2FueSBDaGlja2VuIiwicmVhZHlJbk1pbnV0ZXMiOjQwLCJzZXJ2aW5ncyI6NiwiaW1hZ2UiOiJ0dXNjYW55LWNoaWNrZW4tMi0xMzY4MDQuanBnIiwiaW1hZ2VVcmxzIjpbInR1c2NhbnktY2hpY2tlbi0yLTEzNjgwNC5qcGciLCJ0dXNjYW55X2NoaWNrZW4tMTM2ODA0LmpwZyJdfSx7ImlkIjoxMzY4NTgsInRpdGxlIjoiQ2hpY2tlbiBTYWx0aW1ib2NjYSIsInJlYWR5SW5NaW51dGVzIjo0NSwic2VydmluZ3MiOjQsImltYWdlIjoiY2hpY2tlbi1zYWx0aW1ib2NjYS0yLTEzNjg1OC5wbmciLCJpbWFnZVVybHMiOlsiY2hpY2tlbi1zYWx0aW1ib2NjYS0yLTEzNjg1OC5wbmciXX0seyJpZCI6MTQzMjYzLCJ0aXRsZSI6IkFzaWFuIENoaWNrZW4iLCJyZWFkeUluTWludXRlcyI6MTEwLCJzZXJ2aW5ncyI6NCwiaW1hZ2UiOiJhc2lhbi1jaGlja2VuLTItMTQzMjYzLmpwZyIsImltYWdlVXJscyI6WyJhc2lhbi1jaGlja2VuLTItMTQzMjYzLmpwZyIsImFzaWFuX2NoaWNrZW4tMTQzMjYzLmpwZyJdfSx7ImlkIjoxNDMzMTcsInRpdGxlIjoiVGVyaXlha2kgQ2hpY2tlbiIsInJlYWR5SW5NaW51dGVzIjozMDUsInNlcnZpbmdzIjo2LCJpbWFnZSI6InRlcml5YWtpLWNoaWNrZW4tMi0xNDMzMTcuanBnIiwiaW1hZ2VVcmxzIjpbInRlcml5YWtpLWNoaWNrZW4tMi0xNDMzMTcuanBnIiwidGVyaXlha2lfY2hpY2tlbi0xNDMzMTcuanBnIl19LHsiaWQiOjE0MzU1MiwidGl0bGUiOiJQb2x5bmVzaWFuIENoaWNrZW4iLCJyZWFkeUluTWludXRlcyI6MTI1LCJzZXJ2aW5ncyI6NCwiaW1hZ2UiOiJwb2x5bmVzaWFuLWNoaWNrZW4tMi0xNDM1NTIuanBnIiwiaW1hZ2VVcmxzIjpbInBvbHluZXNpYW4tY2hpY2tlbi0yLTE0MzU1Mi5qcGciLCJwb2x5bmVzaWFuX2NoaWNrZW4tMTQzNTUyLmpwZyJdfSx7ImlkIjoxNzMzMDIsInRpdGxlIjoiQ2hpY2tlbiBXYWlraWtpIiwicmVhZHlJbk1pbnV0ZXMiOjgwLCJzZXJ2aW5ncyI6NiwiaW1hZ2UiOiJjaGlja2VuLXdhaWtpa2ktMTczMzAyLmpwZyIsImltYWdlVXJscyI6WyJjaGlja2VuLXdhaWtpa2ktMTczMzAyLmpwZyJdfV0sImJhc2VVcmkiOiJodHRwczovL3Nwb29uYWN1bGFyLmNvbS9yZWNpcGVJbWFnZXMvIiwib2Zmc2V0IjowLCJudW1iZXIiOjEwLCJ0b3RhbFJlc3VsdHMiOjM1OSwicHJvY2Vzc2luZ1RpbWVNcyI6MzgyLCJleHBpcmVzIjoxNTI3OTgzMjQ2NTM4LCJpc1N0YWxlIjpmYWxzZX0=
+      string: '{"results":[{"id":516577,"title":"Spicy Black Bean, Hominy and Kale
+        Stew","readyInMinutes":40,"servings":6,"image":"Spicy-Black-Bean--Hominy-and-Kale-Stew-516577.jpg","imageUrls":["Spicy-Black-Bean--Hominy-and-Kale-Stew-516577.jpg"]},{"id":586421,"title":"Kale
+        Salad with Tahini Dressing","readyInMinutes":25,"servings":2,"image":"kale-salad-with-tahini-dressing-586421.jpg","imageUrls":["kale-salad-with-tahini-dressing-586421.jpg","Kale-Salad-with-Tahini-Dressing-586421.jpg"]},{"id":742249,"title":"French
+        Lentil and Hominy Chili","readyInMinutes":60,"servings":4,"image":"french-lentil-and-hominy-chili-742249.jpeg","imageUrls":["french-lentil-and-hominy-chili-742249.jpeg"]},{"id":615201,"title":"Roasted
+        Pork White Chili","readyInMinutes":15,"servings":6,"image":"Roasted-Pork-White-Chili-615201.jpg","imageUrls":["Roasted-Pork-White-Chili-615201.jpg"]},{"id":745416,"title":"Healthy
+        Bison Chili","readyInMinutes":80,"servings":6,"image":"healthy-bison-chili-745416.jpeg","imageUrls":["healthy-bison-chili-745416.jpeg"]},{"id":770921,"title":"Slow-Cooker
+        Pork and Hominy Stew","readyInMinutes":440,"servings":4,"image":"slow-cooker-pork-and-hominy-stew-770921.jpeg","imageUrls":["slow-cooker-pork-and-hominy-stew-770921.jpeg"]},{"id":759372,"title":"Spicy
+        Fall Stew Baked in a Pumpkin","readyInMinutes":45,"servings":6,"image":"spicy-fall-stew-baked-in-a-pumpkin-759372.jpg","imageUrls":["spicy-fall-stew-baked-in-a-pumpkin-759372.jpg"]},{"id":156969,"title":"Green
+        Chile-Pork Pozole","readyInMinutes":45,"servings":2,"image":"green-chile-pork-pozole-156969.jpg","imageUrls":["green-chile-pork-pozole-156969.jpg"]},{"id":615346,"title":"Vegetarian
+        Posole with Pinto Beans and Poblano Peppers","readyInMinutes":45,"servings":6,"image":"Vegetarian-Posole-with-Pinto-Beans-and-Poblano-Peppers-615346.jpg","imageUrls":["Vegetarian-Posole-with-Pinto-Beans-and-Poblano-Peppers-615346.jpg"]},{"id":802339,"title":"Crockpot
+        Salsa Verde Chicken Pozole","readyInMinutes":385,"servings":4,"image":"crockpot-salsa-verde-chicken-pozole-802339.jpg","imageUrls":["crockpot-salsa-verde-chicken-pozole-802339.jpg"]}],"baseUri":"https://spoonacular.com/recipeImages/","offset":0,"number":10,"totalResults":242,"processingTimeMs":234,"expires":1528157016444,"isStale":false}'
     http_version: 
-  recorded_at: Sat, 02 Jun 2018 13:38:50 GMT
+  recorded_at: Sat, 02 Jun 2018 14:03:30 GMT
 recorded_with: VCR 4.0.0
