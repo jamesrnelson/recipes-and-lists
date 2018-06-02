@@ -28,14 +28,14 @@
       <div class="recipe">
         <div class="recipe-image-container">
           <div class="recipe-image">
-            <%= link_to image_tag(asset_path recipe.image), recipe.instructions %>
+            <%= link_to image_tag(asset_path "https://spoonacular.com/recipeImages/#{recipe.image}"), "/search/#{recipe.spoonacular_id}"  %>
           </div>
         </div>
       </div>
     </div>
 
     <div class="col-4b">
-      <h2><%= link_to recipe.title,  %></h2>
+      <h2><%= link_to recipe.title, "/search/#{recipe.spoonacular_id}" %></h2>
       <div class="row">
         <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
       </div>
