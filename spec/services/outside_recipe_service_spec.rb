@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OutsideRecipeService do
-  subject { OutsideRecipeService.new("chicken") }
+  subject { OutsideRecipeService.new("hominy") }
 
   it 'exists' do
     expect(subject).to be_an OutsideRecipeService
@@ -10,16 +10,13 @@ describe OutsideRecipeService do
   context 'instance methods' do
     context '#recipe_search' do
       it 'returns an array of hashes with recipe data', vcr: true do
-        raw_search = subject.recipe_search
-        raw_recipes = raw_search
-        raw_recipe = raw_recipes[4][:recipe]
+        raw_search = subject.recipe_search.first
 
-        expect(raw_recipe).to have_key :label
-        expect(raw_recipe).to have_key :image
-        expect(raw_recipe).to have_key :source
-        expect(raw_recipe).to have_key :url
-        expect(raw_recipe).to have_key :yield
-        expect(raw_recipe).to have_key :ingredientLines
+        expect(raw_search).to have_key :title
+        expect(raw_search).to have_key :image
+        expect(raw_search).to have_key :id
+        expect(raw_search).to have_key :readyInMinutes
+        expect(raw_search).to have_key :servings
       end
     end
   end

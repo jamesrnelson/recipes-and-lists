@@ -10,13 +10,15 @@ describe 'User adds recipe to basket from dashboard' do
 
     visit recipes_path
 
-    click_on 'Add to Favorites'
+    within '.recipe-item' do
+      find(:xpath, "//a/img[@alt='heart_icon']/..").click
+    end
 
     visit dashboard_path
 
     expect(page).to have_content('0')
 
-    click_on 'Add to Recipe Basket'
+    find(:xpath, "//a/img[@alt='add to basket']/..").click
 
     expect(page).to have_content("You added #{recipe.title} to your recipe basket")
     expect(page).to have_content('1')

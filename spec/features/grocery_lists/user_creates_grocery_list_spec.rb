@@ -18,7 +18,9 @@ describe 'User adds recipes to Recipe Basket' do
 
       visit recipes_path
 
-      click_on 'Add to Recipe Basket'
+      within '.recipe-item' do
+        find(:xpath, "//a/img[@alt='add to basket']/..").click
+      end
 
       visit basket_path
       fill_in 'grocery_list[title]', with: 'My first list!'

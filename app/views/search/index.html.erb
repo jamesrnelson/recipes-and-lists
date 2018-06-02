@@ -28,35 +28,21 @@
       <div class="recipe">
         <div class="recipe-image-container">
           <div class="recipe-image">
-            <%= link_to image_tag(asset_path recipe.image), recipe.instructions %>
+            <%= link_to image_tag(asset_path "https://spoonacular.com/recipeImages/#{recipe.image}"), "/search/#{recipe.spoonacular_id}"  %>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-4">
-      <h2><%= link_to recipe.title, recipe.instructions %>
-        <% if recipe.creator.nil? %>
-        <%= "- Created by Unknown" %>
-        <% else %>
-        <%= "- Created by #{recipe.creator}" %>
-        <% end %>
-        <%= link_to image_tag("heart_icon.png", alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post'
-                                            # title: recipe.title,
-                                            # prep_time: recipe.total_time/2,
-                                            # cook_time: recipe.total_time/2,
-                                            # instructions: recipe.instructions,
-                                            # image: recipe.image
-                                           %>
-        <p>Instructions: <%= link_to 'See the original recipe here', recipe.instructions %></p>
-        <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
-        <p><%= "Servings: #{recipe.servings}" %></p>
-        <p>Ingredients: </p>
-          <ul>
-            <% recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient %></li>
-            <% end %>
-          </ul>
+    <div class="col-4 outside-recipe">
+        <div class="box">
+            <h2><%= link_to recipe.title, "/search/#{recipe.spoonacular_id}" %></h2>
+        <div class="row">
+          <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
+        </div>
+          <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
+          <p><%= "Servings: #{recipe.servings}" %></p>
+        </div>
     </div>
 
     <div class="col_2">

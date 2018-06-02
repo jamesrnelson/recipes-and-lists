@@ -20,7 +20,7 @@
     </div>
 
     <% @recipes.each do |recipe| %>
-    <div class="row">
+    <div class="row recipe-item">
       <div class="col-2">
 
       </div>
@@ -44,9 +44,9 @@
           <% end %>
 
           <% if current_user %>
-          <%= link_to 'Add to Favorites', user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
+          <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }, origin: 'recipes index'), method: 'post' %>
           <% end %>
-          <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: recipe.id), title: recipe.title %>
+          <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: recipe.id), title: recipe.title, method: :post %>
           <% if current_admin? %>
 
           <%= " - Created at #{recipe.created_at}" %>
@@ -64,5 +64,5 @@
 
     </div>
     <% end %>
-  
+
 </div>

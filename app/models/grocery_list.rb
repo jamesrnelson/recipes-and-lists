@@ -11,6 +11,10 @@ class GroceryList < ApplicationRecord
   end
 
   def all_ingredients
-    recipes.joins(:ingredients).pluck(:name).uniq.sort
+    recipes.joins(:ingredients)
+      .joins(:recipe_ingredients)
+      .select("ingredients.name AS name, recipe_ingredients.quantity AS quantity, recipe_ingredients.measurement AS measurement")
+      .order("name ASC")
+      .distinct
   end
 end

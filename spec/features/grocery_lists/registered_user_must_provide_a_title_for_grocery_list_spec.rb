@@ -25,7 +25,9 @@ describe 'Registered User' do
 
       visit recipes_path
 
-      click_on 'Add to Recipe Basket'
+      within '.recipe-item' do
+        find(:xpath, "//a/img[@alt='heart_icon']/..").click
+      end
       visit basket_path
 
       click_on 'Create Grocery List'

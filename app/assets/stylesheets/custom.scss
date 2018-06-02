@@ -207,6 +207,10 @@ body {
 
 }
 
+.recipe-item
+
+
+
 /* Basket */
 
 .col-4b {
@@ -237,6 +241,18 @@ body {
     border: 3px solid $footer-background-color;
     color: $footer-background-color;
   }
+
+  h2 {
+    font-family: $header-text;
+    color: $top-bar-background-color;
+  }
+
+  h3 {
+    font-family: $header-text;
+    color: $top-bar-background-color;
+    font-size: 20px;
+  }
+
 }
 
 .button {
@@ -261,7 +277,10 @@ body {
 .box {
   padding: 15px;
   border: 2px solid $top-bar-background-color;
+  width: 300px;
   margin: 5px;
+
+
 }
 
 /* Grocery List Checklist */

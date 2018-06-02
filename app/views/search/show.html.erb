@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-2">
+
+  </div>
+
+  <div class="col-4b">
+    <%= image_tag asset_path @outside_recipe.image %>
+  </div>
+
+  <div class="col-4">
+    <div class="box outside-recipe">
+      <h2><%= @outside_recipe.title %></h2>
+      <p>Created by</p>
+      <h3><%= link_to @outside_recipe.source_name, @outside_recipe.source_url %></h3>
+      <p><%= "Total time: #{@outside_recipe.total_time} minutes"%></p>
+      <p>Servings: <%= @outside_recipe.servings %></p>
+      <h3>Instructions:</h3>
+      <p><%= @outside_recipe.instructions %></p>
+      <h3>Ingredients: </h3>
+      <% @outside_recipe.ingredients.each do |ingredient| %>
+      <p><%= "#{ingredient.quantity} #{ingredient.measurement} #{ingredient.name}" %></p>
+      <% end %>
+
+    </div>
+  </div>
+
+  <div class="col-2">
+
+  </div>
+</div>
