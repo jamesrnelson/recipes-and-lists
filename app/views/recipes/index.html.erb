@@ -44,9 +44,9 @@
           <% end %>
 
           <% if current_user %>
-          <%= link_to 'Add to Favorites', user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
+          <%= link_to image_tag(asset_path "heart_icon.png"), user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post' %>
           <% end %>
-          <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: recipe.id), title: recipe.title %>
+          <%= link_to image_tag(asset_path 'add_to_basket_icon.png'), basket_path(recipe_id: recipe.id), title: recipe.title, method: :post %>
           <% if current_admin? %>
 
           <%= " - Created at #{recipe.created_at}" %>
@@ -64,5 +64,5 @@
 
     </div>
     <% end %>
-  
+
 </div>

@@ -3,12 +3,10 @@ class OutsideRecipe
               :total_time, :servings, :ingredients
 
   def initialize(attrs)
-    @title = attrs[:recipe][:label]
-    @image = attrs[:recipe][:image]
-    @creator = attrs[:recipe][:source]
-    @instructions = attrs[:recipe][:url]
-    @total_time = attrs[:recipe][:totalTime]
-    @servings = attrs[:recipe][:yield]
-    @ingredients = attrs[:recipe][:ingredientLines]
+    @title = attrs[:title]
+    @image = "https://spoonacular.com/recipeImages/#{attrs[:imageUrls].first}"
+    @spoonacular_id = attrs[:id]
+    @total_time = attrs[:readyInMinutes]
+    @servings = attrs[:servings]
   end
 end

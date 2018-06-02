@@ -4,17 +4,22 @@ class OutsideRecipeService
   end
 
   def recipe_search
-    JSON.parse(response.body, symbolize_names: true)[:hits]
+    JSON.parse(response.body, symbolize_names: true)[:results]
   end
 
   private
     attr_reader :query
 
     def connection
-      Faraday.new(url: "https://api.edamam.com/search?app_id=#{ENV['EDAMAM_APPLICATION_ID']}&app_key=#{ENV['EDAMAM_APPLICATION_KEY']}&q=#{query}")
+      Faraday.new(url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=#{query}")
     end
 
+    # "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information"
+
     def response
-      connection.get
+      @response ||= connection.get do |req|
+        req.headers['X-Mashape-Key'] = ENV['SPOONACULAR_API_KEY']
+        req.headers['Accept'] = 'application/json'
+      end
     end
 end
