@@ -34,22 +34,11 @@
       </div>
     </div>
 
-    <div class="col-4">
-      <h2><%= link_to recipe.title, recipe.instructions %>
-        <% if recipe.creator.nil? %>
-        <%= "- Created by Unknown" %>
-        <% else %>
-        <%= "- Created by #{recipe.creator}" %>
-        <% end %>
-        <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path
-
-        # user_recipes_path(user_recipe: { recipe_id: recipe.id, user_id: current_user.id }), method: 'post'
-                                            # title: recipe.title,
-                                            # prep_time: recipe.total_time/2,
-                                            # cook_time: recipe.total_time/2,
-                                            # instructions: recipe.instructions,
-                                            # image: recipe.image
-                                           %>
+    <div class="col-4b">
+      <h2><%= link_to recipe.title,  %></h2>
+      <div class="row">
+        <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), recipes_path %>
+      </div>
         <p><%= "Total Time: #{recipe.total_time} minutes" %></p>
         <p><%= "Servings: #{recipe.servings}" %></p>
     </div>
