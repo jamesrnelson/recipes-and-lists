@@ -357,8 +357,12 @@ label {
 
 /* Page Content */
 
-.content {
+#content {
   padding: 16px;
+}
+
+.content-padding {
+  margin-top: 70px;
 }
 
 /* stickiness with JS */
@@ -366,9 +370,10 @@ label {
 .sticky {
   position: fixed;
   top: 0;
+  margin-bottom: 60px;
   width: 99%
 }
 
-.sticky + .content {
-  padding-top: 60px;
+.sticky + .navbar {
+  margin-bottom: 60px;
 }

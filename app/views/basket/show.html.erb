@@ -1,51 +1,52 @@
-<div class="row">
-  <div class="col-4">
+<div id="content">
+  <div class="row">
+    <div class="col-4">
 
+    </div>
+    <div class="col-4">
+      <h1>Turn Your Recipe Basket into a Grocery List</h1>
+
+    </div>
+    <div class="col-4">
+
+    </div>
   </div>
-  <div class="col-4">
-    <h1>Turn Your Recipe Basket into a Grocery List</h1>
 
-  </div>
-  <div class="col-4">
+  <div class="row">
+    <div class="col-4">
 
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-4">
-
-  </div>
-  <div class="col-4b">
-    <% if current_user %>
+    </div>
+    <div class="col-4b">
+      <% if current_user %>
       <%= form_tag grocery_lists_path(current_user) do %>
-        <p>Grocery List Title:</p>
-        <p><%= text_field_tag :'grocery_list[title]', nil, size: 30 %></p>
-        <p><%= submit_tag "Create Grocery List", class: 'button' %></p>
+      <p>Grocery List Title:</p>
+      <p><%= text_field_tag :'grocery_list[title]', nil, size: 30 %></p>
+      <p><%= submit_tag "Create Grocery List", class: 'button' %></p>
       <% end %>
-    <% else %>
-    <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
-    <% end %>
+      <% else %>
+      <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
+      <% end %>
+    </div>
+    <div class="col-4">
+
+    </div>
   </div>
-  <div class="col-4">
-
-  </div>
-</div>
 
 
-    <% @basket.contents.each do |recipe, quantity| %>
-    <% found_recipe =  @basket.find_recipe(recipe) %>
-    <div class="row">
-      <div class="col-4">
+  <% @basket.contents.each do |recipe, quantity| %>
+  <% found_recipe =  @basket.find_recipe(recipe) %>
+  <div class="row">
+    <div class="col-4">
 
-      </div>
-      <div class="col-4">
-        <div class="box">
-          <h3><%= link_to found_recipe.title, recipe_path(recipe) %></h3>
-          <ul>
-            <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
-            <li><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
-              <% end %>
-            </ul>
+    </div>
+    <div class="col-4">
+      <div class="box">
+        <h3><%= link_to found_recipe.title, recipe_path(recipe) %></h3>
+        <ul>
+          <% found_recipe.recipe_ingredients.each do |recipe_ingredient| %>
+          <li><%= "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement}" %></p>
+            <% end %>
+          </ul>
 
         </div>
       </div>
@@ -53,4 +54,6 @@
 
       </div>
     </div>
-          <% end %>
+    <% end %>
+
+</div>

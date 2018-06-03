@@ -1,44 +1,47 @@
-<div class="row">
-  <div class="col-2">
+<div id="content">
+  <div class="row">
+    <div class="col-2">
 
-  </div>
-  <div class="col-4">
-    <h1><%= @grocery_list.title %></h1>
+    </div>
+    <div class="col-4">
+      <h1><%= @grocery_list.title %></h1>
 
-  </div>
-  <div class="col-4">
-    <h2><%= @grocery_list.date %></h2>
-  </div>
+    </div>
+    <div class="col-4">
+      <h2><%= @grocery_list.date %></h2>
+    </div>
 
-  <div class="col-2">
+    <div class="col-2">
 
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-2">
-
-  </div>
-  <div class="col-4 items">
-    <h3>Recipes</h3>
-    <ul>
-      <% @grocery_list.recipes.each do |recipe| %>
-      <li><%= link_to recipe.title, recipe_path(recipe) %></li>
-      <% end %>
-    </ul>
+    </div>
   </div>
 
-  <div class="items">
-    <h3>Ingredients</h3>
+  <div class="row">
+    <div class="col-2">
+
+    </div>
+    <div class="col-4 items">
+      <h3>Recipes</h3>
+      <ul>
+        <% @grocery_list.recipes.each do |recipe| %>
+        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="items">
+      <h3>Ingredients</h3>
       <% @grocery_list.all_ingredients.each do |ingredient| %>
       <div class="ingredient-item">
         <%= check_box_tag :ingredient  %>
         <%= label_tag "#{ingredient.name} - #{ingredient.quantity} #{ingredient.measurement}" %>
       </div>
       <% end %>
+    </div>
+
+    <div class="col-2">
+
+    </div>
   </div>
 
-  <div class="col-2">
-
-  </div>
 </div>

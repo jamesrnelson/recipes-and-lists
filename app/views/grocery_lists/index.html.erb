@@ -1,30 +1,33 @@
-<div class="row">
-  <div class="col-4">
+<div id="content">
+  <div class="row">
+    <div class="col-4">
 
-  </div>
-  <div class="col-4">
-    <div class="row">
-      <h1>Your Grocery Lists</h1>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <h1>Your Grocery Lists</h1>
+      </div>
+    </div>
+    <div class="col-4">
+
     </div>
   </div>
-  <div class="col-4">
 
-  </div>
-</div>
+  <div class="row">
+    <div class="col-4">
 
-<div class="row">
-  <div class="col-4">
-
-  </div>
-  <div class="col-4b">
-    <% @grocery_lists.each do |grocery_list| %>
+    </div>
+    <div class="col-4b">
+      <% @grocery_lists.each do |grocery_list| %>
       <div class="grocery-list-box">
         <h3><%= link_to grocery_list.title, grocery_list_path(grocery_list) %></h3>
         <p><%= grocery_list.date %></p>
       </div>
-    <% end %>
-  </div>
-  <div class="col-4">
+      <% end %>
+    </div>
+    <div class="col-4">
 
+    </div>
   </div>
+
 </div>

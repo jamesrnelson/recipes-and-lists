@@ -1,20 +1,23 @@
-<% if current_user %>
+<div id="content">
+  <% if current_user %>
   <h1>Add a new recipe here</h1>
 
   <%= form_tag(recipes_path, method: :post, multipart: true) do %>
-    <p>Title</p>
-    <p><%= text_field_tag :"recipe[title]" %></p>
-    <p>Prep Time</p>
-    <p><%= number_field_tag :"recipe[prep_time]" %></p>
-    <p>Cook Time</p>
-    <p><%= number_field_tag :"recipe[cook_time]" %></p>
-    <p>Instructions</p>
-    <p><%= text_area_tag :"recipe[instructions]" %></p>
-    <p>Image</p>
-    <p><%= file_field_tag :"recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
+  <p>Title</p>
+  <p><%= text_field_tag :"recipe[title]" %></p>
+  <p>Prep Time</p>
+  <p><%= number_field_tag :"recipe[prep_time]" %></p>
+  <p>Cook Time</p>
+  <p><%= number_field_tag :"recipe[cook_time]" %></p>
+  <p>Instructions</p>
+  <p><%= text_area_tag :"recipe[instructions]" %></p>
+  <p>Image</p>
+  <p><%= file_field_tag :"recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
     <p>(Add ingredients on the next page)</p>
     <p><%= submit_tag "Create Recipe" %></p>
-  <% end %>
-<% else %>
-  <h3>Create an account and log in to create new recipes!</h3>
-<% end %>
+    <% end %>
+    <% else %>
+    <h3>Create an account and log in to create new recipes!</h3>
+    <% end %>
+
+</div>
