@@ -13,7 +13,11 @@
   <p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
   <% end %>
   <%= button_to 'Add to Recipe Basket', basket_path(recipe_id: @recipe.id), title: @recipe.title %>
-<p><%= image_tag(@recipe.image) %></p>
+    <% if @recipe.outside_image.nil? %>
+      <p><%= image_tag(@recipe.image) %></p>
+    <% else %>
+      <p><%= image_tag(@recipe.outside_image) %></p>
+    <% end %>
 <h3>Prep Time: <%= @recipe.prep_time %> minutes</h3>
 <h3>Cook Time: <%= @recipe.cook_time %> minutes</h3>
 <h3>Instructions:</h3>

@@ -13,16 +13,17 @@
         <% if current_user %>
           <p><%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'),
           conversion_index_path(
-            title: @outside_recipe.title,
-            creator_id: current_user.id,
-            user_id: current_user.id,
-            ingredients: @outside_recipe.ingredients,
-            outside_recipe_id: @outside_recipe.spoonacular_id,
-            prep_time: @outside_recipe.total_time/2,
-            cook_time: @outside_recipe.total_time/2,
-            instructions: @outside_recipe.instructions,
-            image: @outside_recipe.image
-          ), method: 'post' %></p>
+              title: @outside_recipe.title,
+              creator_id: current_user.id,
+              user_id: current_user.id,
+              ingredients: @outside_recipe.ingredients,
+              outside_recipe_id: @outside_recipe.spoonacular_id,
+              prep_time: @outside_recipe.total_time/2,
+              cook_time: @outside_recipe.total_time/2,
+              instructions: @outside_recipe.instructions,
+              outside_image: @outside_recipe.image
+            ),
+            method: :post, multipart: true %></p>
         <% end %>
       <p>Created by</p>
       <h3><%= link_to @outside_recipe.source_name, @outside_recipe.source_url %></h3>

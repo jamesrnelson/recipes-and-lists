@@ -29,7 +29,11 @@
         <div class="recipe">
           <div class="recipe-image-container">
             <div class="recipe-image">
-              <%= link_to image_tag(asset_path recipe.image), recipe_path(recipe) %>
+              <% if recipe.outside_image.nil? %>
+                <%= link_to image_tag(asset_path recipe.image), recipe_path(recipe) %>
+              <% else %>
+                <%= link_to image_tag(asset_path recipe.outside_image), recipe_path(recipe) %>
+              <% end %>
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 class ConversionController < ApplicationController
   def create
     if Recipe.exists?(outside_recipe_id: params[:outside_recipe_id])
-      binding.pry
       @recipe = Recipe.find_by(outside_recipe_id: params[:outside_recipe_id])
       @user_recipe = UserRecipe.create(recipe_id: @recipe.id, user_id: current_user.id)
     else
@@ -12,7 +11,7 @@ class ConversionController < ApplicationController
         cook_time: params[:cook_time],
         outside_recipe_id: params[:outside_recipe_id],
         instructions: params[:instructions],
-        image_file_name: "https://spoonacular.com/recipeImages/#{params[:image]}"
+        outside_image: params[:outside_image]
       )
       binding.pry
       @user_recipe = UserRecipe.create(recipe_id: @recipe.id, user_id: current_user.id)
