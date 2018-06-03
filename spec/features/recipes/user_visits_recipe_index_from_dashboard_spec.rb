@@ -10,7 +10,7 @@ describe 'User visits recipe index' do
       visit dashboard_path
 
 
-      click_on 'See All Recipes'
+      click_on 'Browse Recipes'
 
       expect(current_path).to eq(recipes_path)
       expect(page).to have_content(recipes[0].title)

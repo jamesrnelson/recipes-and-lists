@@ -18,10 +18,10 @@
 
   </div>
   <div class="col-4">
-    <h3>Log in with your Appetite account</h3>
+
   </div>
   <div class="col-4">
-    <h3>or Log in with Amazon</h3>
+
   </div>
   <div class="col-2">
 
@@ -32,23 +32,29 @@
 
   </div>
   <div class="col-4">
-    <p><%= form_tag login_path do %></p>
-    <p><%= label_tag :email, 'E-mail address' %></p>
-    <p><%= email_field_tag :email %></p>
+    <div class="login-box">
+      <h3>Log in with your Appetite account</h3>
+      <p><%= form_tag login_path do %></p>
+      <p><%= label_tag :email, 'E-mail address' %></p>
+      <p><%= email_field_tag :email %></p>
 
-    <p><%= label_tag :password %></p>
-    <p><%= password_field_tag :password %></p>
+      <p><%= label_tag :password %></p>
+      <p><%= password_field_tag :password %></p>
 
-    <p><%= submit_tag "Log in" %></p>
-    <% end %>
-
+      <p><%= submit_tag "Log in" %></p>
+      <% end %>
+    </div>
   </div>
+
   <div class="col-4">
-    <a href="#" id="LoginWithAmazon">
-      <img border="0" alt="Login with Amazon"
-      src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-      width="156" height="32" />
-    </a>
+    <div class="login-box">
+      <h3>or Log in with Amazon</h3>
+      <a href="#" id="LoginWithAmazon">
+        <img border="0" alt="Login with Amazon"
+        src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+        width="156" height="32" />
+      </a>      
+    </div>
 
   </div>
   <div class="col-2">

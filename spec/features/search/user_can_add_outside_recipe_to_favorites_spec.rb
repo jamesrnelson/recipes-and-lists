@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User' do
   context 'has searched for outside recipes' do
-    it 'should be able to add these recipes to favorites' do
+    it 'should be able to add these recipes to favorites', vcr: true do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController)
@@ -17,11 +17,11 @@ describe 'User' do
 
       click_on 'Search'
 
-      within(first('.outside-recipe')) do
-        find(:xpath, "//a/img[@alt='heart_icon']/..").click
-      end
+      click_on 'Spicy Black Bean, Hominy and Kale Stew'
 
-      expect(page).to have_content("You added Spicy Black Bean, Hominy and Kale Stew to your favorites.")
+      find(:xpath, "//a/img[@alt='heart_icon']/..").click
+
+      expect(page).to have_content("You added Spicy Black Bean, Hominy and Kale Stew to your favorites")
     end
   end
 end

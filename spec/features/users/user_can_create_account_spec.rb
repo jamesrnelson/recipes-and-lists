@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 describe 'User visits root path' do
-  context 'clicks on Create Account' do
+  context 'clicks on Sign Up' do
     it 'should be able to fill in the form and create an account' do
       visit root_path
 
-      click_on 'Create Account'
+      within '#navbar' do
+        click_on 'Sign up'
+      end
 
       username = 'Jimmy'
       fill_in 'Username', with: username
@@ -15,7 +17,7 @@ describe 'User visits root path' do
       click_on 'Create Account'
 
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("You are logged in as #{username}")
+      expect(page).to have_content("Logged in as #{username}")
     end
   end
 end

@@ -1,8 +1,61 @@
-<h1>You are logged in as <%= current_user.username %>!</h1>
-<h3><%= link_to 'Log out', logout_path %></h3>
-<h3><%= link_to 'Update Profile', edit_user_path(current_user) %></h3>
-<h3><%= link_to 'See All Recipes', recipes_path %></h3>
-<h3>Your favorites:</h3>
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <div class="row">
+      <h2><%= link_to 'Update Profile', edit_user_path(current_user) %></h2>
+    </div>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-4">
+    <div class="row">
+      <h1>Your Favorites</h1>
+    </div>
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>
+
 <% current_user.favorites.each do |favorite| %>
-  <p><%= link_to favorite.title, recipe_path(favorite) %> <%= " - Prep time: #{favorite.prep_time} minutes - Cook time: #{favorite.cook_time} minutes" %> <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: favorite.id), title: favorite.title, method: :post %></p>
+  <div class="row recipe-item">
+    <div class="col-2">
+
+    </div>
+    <div class="col-4">
+      <div class="recipe">
+        <div class="recipe-image-container">
+          <div class="recipe-image">
+            <% if favorite.outside_image.nil? %>
+              <%= link_to image_tag(asset_path favorite.image), recipe_path(favorite) %>
+            <% else %>
+              <%= link_to image_tag(asset_path favorite.outside_image), recipe_path(favorite) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="grocery-list-box">
+        <h3><%= link_to favorite.title, recipe_path(favorite) %></h3>
+        <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: favorite.id), title: favorite.title, method: :post %></p>
+        <p><%= "Prep time: #{favorite.prep_time} minutes" %></p>
+        <p><%= "Cook time: #{favorite.cook_time} minutes" %></p>
+      </div>
+    </div>
+
+    <div class="col_2">
+
+    </div>
+  </div>
 <% end %>
