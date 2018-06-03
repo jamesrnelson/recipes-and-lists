@@ -171,9 +171,15 @@ body {
     color: $nav-bar-background-color;
   }
 
-  h2 {
+  h1 {
     font-family: $header-text;
     color: $top-bar-background-color;
+    display: inline;
+  }
+
+  h2 {
+    font-family: $header-text;
+    color: $footer-background-color;
     display: inline;
   }
 
@@ -273,13 +279,47 @@ body {
 }
 
 /* Add a box around content */
-
 .box {
   padding: 15px;
   border: 2px solid $top-bar-background-color;
-  width: 300px;
+  width: 400px;
   margin: 5px;
 
+}
+
+.login-box {
+  padding: 15px;
+  border: 2px solid $top-bar-background-color;
+  width: 250px;
+  margin: 5px;
+}
+
+.grocery-list-box {
+  padding: 15px;
+  border: 2px solid $top-bar-background-color;
+  width: 400px;
+  margin: 5px;
+
+  p {
+    font-family: $regular-text;
+    color: $top-bar-background-color;
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $top-bar-background-color;
+  }
+
+  a:hover {
+    color: $nav-bar-background-color;
+  }
+
+  h3 {
+    font-family: $header-text;
+    color: $top-bar-background-color;
+    font-size: 20px;
+  }
 
 }
 

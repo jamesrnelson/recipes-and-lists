@@ -18,11 +18,11 @@
 
   </div>
   <div class="col-4">
-    <h3>Create an account here</h3>
+
 
   </div>
   <div class="col-4">
-    <h3>or Log in with Amazon</h3>
+
   </div>
   <div class="col-2">
 
@@ -34,23 +34,31 @@
 
   </div>
   <div class="col-4">
-    <p><%= form_for @user do |f| %></p>
-    <p><%= f.label :username %></p>
-    <p><%= f.text_field :username %></p>
-    <p><%= f.label :email, 'E-mail address' %></p>
-    <p><%= f.email_field :email %></p>
-    <p><%= f.label :password %></p>
-    <p><%= f.password_field :password %></p>
-    <p><%= f.submit 'Create Account' %></p>
-    <% end %>
+    <div class="login-box">
+      <h3>Create an account here</h3>
+      <p><%= form_for @user do |f| %></p>
+      <p><%= f.label :username %></p>
+      <p><%= f.text_field :username %></p>
+      <p><%= f.label :email, 'E-mail address' %></p>
+      <p><%= f.email_field :email %></p>
+      <p><%= f.label :password %></p>
+      <p><%= f.password_field :password %></p>
+      <p><%= f.submit 'Create Account' %></p>
+      <% end %>
+
+    </div>
 
   </div>
   <div class="col-4">
-    <a href="#" id="LoginWithAmazon">
-      <img border="0" alt="Login with Amazon"
+    <div class="login-box">
+      <h3>or Log in with Amazon</h3>
+      <a href="#" id="LoginWithAmazon">
+        <img border="0" alt="Login with Amazon"
         src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
         width="156" height="32" />
-    </a>
+      </a>
+
+    </div>
   </div>
   <div class="col-2">
 
