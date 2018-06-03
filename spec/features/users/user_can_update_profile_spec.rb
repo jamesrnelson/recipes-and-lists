@@ -9,7 +9,7 @@ describe 'User can update profile' do
 
       visit dashboard_path
 
-      expect(page).to have_content("You are logged in as #{user.username}")
+      expect(page).to have_content("Logged in as #{user.username}")
 
       click_on 'Update Profile'
 
@@ -32,8 +32,6 @@ describe 'User tries and fails to update profile profile' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit dashboard_path
-
-      expect(page).to have_content("You are logged in as #{user.username}")
 
       click_on 'Update Profile'
 
