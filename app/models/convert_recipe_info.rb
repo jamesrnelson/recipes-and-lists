@@ -60,6 +60,6 @@ class ConvertRecipeInfo
     attr_reader :id
 
     def service
-      @service ||= OutsideRecipeInfoService.new(id)
+      @service ||= OutsideRecipeInfoService.new(id, '/information')
     end
 end

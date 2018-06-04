@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User' do
-  scenario 'logs in successfully' do
+  scenario 'logs in successfully', vcr: true do
     user = User.create(
       username: 'Jimmy',
       email: 'nelson.jimmy@gmail.com',
@@ -22,7 +22,7 @@ describe 'User' do
     expect(current_path).to eq(dashboard_path)
   end
 
-  scenario 'fails to log in' do
+  scenario 'fails to log in', vcr: true do
     user = User.create(
       username: 'Jimmy',
       email: 'nelson.jimmy@gmail.com',
@@ -40,7 +40,7 @@ describe 'User' do
     expect(page).to have_content('Unable to log in')
   end
 
-  scenario 'can log out' do
+  scenario 'can log out', vcr: true do
     user = User.create(
       username: 'Jimmy',
       email: 'nelson.jimmy@gmail.com',

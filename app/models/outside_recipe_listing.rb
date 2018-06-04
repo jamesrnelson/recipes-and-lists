@@ -1,5 +1,5 @@
 class OutsideRecipeListing
-  def initialize(query, to=10)
+  def initialize(query)
     @query = query
   end
 

@@ -1,4 +1,4 @@
-<div id="content">  
+<div id="content">
   <div class="row">
     <div class="col-4">
 
@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <% current_user.favorites.each do |favorite| %>
+  <% @favorites.each do |favorite| %>
   <div class="row recipe-item">
     <div class="col-2">
 
@@ -37,9 +37,9 @@
         <div class="recipe-image-container">
           <div class="recipe-image">
             <% if favorite.outside_image.nil? %>
-            <%= link_to image_tag(asset_path favorite.image), recipe_path(favorite) %>
+              <%= link_to image_tag(asset_path favorite.image), recipe_path(favorite) %>
             <% else %>
-            <%= link_to image_tag(asset_path favorite.outside_image), recipe_path(favorite) %>
+              <%= link_to image_tag(asset_path favorite.outside_image), recipe_path(favorite) %>
             <% end %>
           </div>
         </div>
@@ -52,6 +52,7 @@
         <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: favorite.id), title: favorite.title, method: :post %></p>
         <p><%= "Prep time: #{favorite.prep_time} minutes" %></p>
         <p><%= "Cook time: #{favorite.cook_time} minutes" %></p>
+        <p><%= "Added on #{favorite.created_at.strftime("%B %-d, %Y")}" %></p>
       </div>
     </div>
 

@@ -14,8 +14,6 @@ class OutsideRecipeService
       Faraday.new(url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?query=#{query}")
     end
 
-    # "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/information"
-
     def response
       @response ||= connection.get do |req|
         req.headers['X-Mashape-Key'] = ENV['SPOONACULAR_API_KEY']

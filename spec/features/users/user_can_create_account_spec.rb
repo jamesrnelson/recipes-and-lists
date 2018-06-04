@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'User visits root path' do
   context 'clicks on Sign Up' do
-    it 'should be able to fill in the form and create an account' do
+    it 'should be able to fill in the form and create an account', vcr: true do
       visit root_path
 
       within '#navbar' do
@@ -24,10 +24,12 @@ end
 
 describe 'User visits root path' do
   context 'clicks on Create Account' do
-    it 'can not create new account without all info' do
+    it 'can not create new account without all info', vcr: true do
       visit root_path
 
-      click_on 'Create Account'
+      within '#navbar' do
+        click_on 'Sign up'
+      end
 
       click_on 'Create Account'
 
