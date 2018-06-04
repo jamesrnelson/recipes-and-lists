@@ -1,32 +1,33 @@
-<div class="row">
-  <div class="col-4">
+<div id="content">
+  <div class="row">
+    <div class="col-4">
 
-  </div>
-  <div class="col-4">
-    <div class="row">
-      <h2><%= link_to 'Update Profile', edit_user_path(current_user) %></h2>
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <h2><%= link_to 'Update Profile', edit_user_path(current_user) %></h2>
+      </div>
+    </div>
+    <div class="col-4">
+
     </div>
   </div>
-  <div class="col-4">
 
-  </div>
-</div>
+  <div class="row">
+    <div class="col-4">
 
-<div class="row">
-  <div class="col-4">
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <h1>Your Favorites</h1>
+      </div>
+    </div>
+    <div class="col-4">
 
-  </div>
-  <div class="col-4">
-    <div class="row">
-      <h1>Your Favorites</h1>
     </div>
   </div>
-  <div class="col-4">
 
-  </div>
-</div>
-
-<% current_user.favorites.each do |favorite| %>
+  <% @favorites.each do |favorite| %>
   <div class="row recipe-item">
     <div class="col-2">
 
@@ -51,6 +52,7 @@
         <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: favorite.id), title: favorite.title, method: :post %></p>
         <p><%= "Prep time: #{favorite.prep_time} minutes" %></p>
         <p><%= "Cook time: #{favorite.cook_time} minutes" %></p>
+        <p><%= "Added on #{favorite.created_at.strftime("%B %-d, %Y")}" %></p>
       </div>
     </div>
 
@@ -58,4 +60,6 @@
 
     </div>
   </div>
-<% end %>
+  <% end %>
+
+</div>

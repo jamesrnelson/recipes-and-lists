@@ -1,6 +1,7 @@
 class OutsideRecipeInfoService
-  def initialize(id)
+  def initialize(id, path)
     @id = id
+    @path = path
   end
 
   def recipe_info
@@ -8,10 +9,10 @@ class OutsideRecipeInfoService
   end
 
   private
-    attr_reader :id
+    attr_reader :id, :path
 
     def connection
-      Faraday.new(url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/#{id}/information")
+      Faraday.new(url: "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/#{id}#{path}")
     end
 
     def response

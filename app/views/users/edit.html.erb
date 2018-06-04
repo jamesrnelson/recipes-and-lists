@@ -1,5 +1,6 @@
-<h1>Edit your account information here</h1>
-<%= form_for current_user do |f| %>
+<div id="content">
+  <h1>Edit your account information here</h1>
+  <%= form_for current_user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :email, 'E-mail address' %>
@@ -7,4 +8,6 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
   <%= f.submit 'Update Profile' %>
-<% end %>
+  <% end %>
+
+</div>

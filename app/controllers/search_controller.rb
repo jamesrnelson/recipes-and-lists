@@ -4,6 +4,6 @@ class SearchController < ApplicationController
   end
 
   def show
-    @outside_recipe = OutsideRecipeInfo.new(params[:id]).recipe
+    @outside_recipe = OutsideRecipeInfo.new(params[:id], '/information').recipe
   end
 end

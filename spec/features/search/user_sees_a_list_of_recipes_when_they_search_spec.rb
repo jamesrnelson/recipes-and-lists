@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Registered User' do
   context 'Visits recipes index and fills in search form' do
-    it 'should show a list of recipes from Edamam\'s API' do
+    it 'should show a list of recipes from outside API' do
       user = create(:user)
 
       allow_any_instance_of(ApplicationController)

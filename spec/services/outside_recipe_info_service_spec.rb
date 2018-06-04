@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OutsideRecipeInfoService do
-  subject { OutsideRecipeInfoService.new("759372") }
+  subject { OutsideRecipeInfoService.new("759372", '/information') }
 
   it 'exists' do
     expect(subject).to be_an OutsideRecipeInfoService

@@ -1,42 +1,45 @@
-<div class="row">
-  <div class="col-2">
-
-  </div>
-
-  <div class="col-4b">
-    <%= image_tag asset_path @outside_recipe.image %>
-    <div class="box grocery-list-box">
-      <h3>Ingredients: </h3>
-      <% @outside_recipe.ingredients.each do |ingredient| %>
-      <p><%= check_box_tag :ingredient  %>
-      <%= label_tag  "#{ingredient.name}, #{ingredient.quantity} #{ingredient.measurement}" %></p>
-      <% end %>
+<div id="content">
+  <div class="row">
+    <div class="col-2">
 
     </div>
-  </div>
 
-  <div class="col-4">
-    <div class="box outside-recipe">
-      <h1><%= @outside_recipe.title %></h1>
-        <% if current_user %>
+    <div class="col-4b">
+      <%= image_tag asset_path @outside_recipe.image %>
+      <div class="box grocery-list-box">
+        <h3>Ingredients: </h3>
+        <% @outside_recipe.ingredients.each do |ingredient| %>
+        <p><%= check_box_tag :ingredient  %>
+          <%= label_tag  "#{ingredient.name}, #{ingredient.quantity} #{ingredient.measurement}" %></p>
+          <% end %>
+
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="box outside-recipe">
+          <h1><%= @outside_recipe.title %></h1>
+          <% if current_user %>
           <p><%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'),
           conversion_index_path(
-              outside_recipe_id: @outside_recipe.spoonacular_id,
-            ),
-            method: :post, multipart: true %></p>
-        <% else %>
-      </br><h2>Create an account and log in to add search results to your favorites</h2>
+            outside_recipe_id: @outside_recipe.spoonacular_id,
+          ),
+          method: :post, multipart: true %></p>
+          <% else %>
+        </br><h2>Create an account and log in to add search results to your favorites</h2>
         <% end %>
-      <p>Created by:</p>
-      <h3><%= link_to @outside_recipe.source_name, @outside_recipe.source_url %></h3>
-      <p><%= "Total time: #{@outside_recipe.total_time} minutes"%></p>
-      <p>Servings: <%= @outside_recipe.servings %></p>
-      <h3>Instructions:</h3>
-      <p><%= @outside_recipe.instructions %></p>
+        <p>Created by:</p>
+        <h3><%= link_to @outside_recipe.source_name, @outside_recipe.source_url %></h3>
+        <p><%= "Total time: #{@outside_recipe.total_time} minutes"%></p>
+        <p>Servings: <%= @outside_recipe.servings %></p>
+        <h3>Instructions:</h3>
+        <p><%= @outside_recipe.instructions %></p>
+      </div>
+    </div>
+
+    <div class="col-2">
+
     </div>
   </div>
 
-  <div class="col-2">
-
-  </div>
 </div>

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe OutsideRecipeInfo do
-  subject { OutsideRecipeInfo.new('759372') }
+  subject { OutsideRecipeInfo.new('759372', 'information') }
   it 'exists' do
     expect(subject).to be_an OutsideRecipeInfo
   end

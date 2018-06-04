@@ -4,6 +4,8 @@ window.onscroll = function() {scroll()};
 // Get the navbar
 var navbar = document.getElementById("navbar");
 
+var content = document.getElementById("content")
+
 // Get the offset position of the navbar
 var sticky = navbar.offsetTop;
 
@@ -11,7 +13,9 @@ var sticky = navbar.offsetTop;
 function scroll() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky")
+    content.classList.add("content-padding")
   } else {
-    navbar.classList.remove("sticky");
+    navbar.classList.remove("sticky")
+    content.classList.remove("content-padding")
   }
 }
