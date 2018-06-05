@@ -18,13 +18,13 @@
     </div>
     <div class="col-4b">
       <% if current_user %>
-      <%= form_tag grocery_lists_path(current_user) do %>
-      <p>Grocery List Title:</p>
-      <p><%= text_field_tag :'grocery_list[title]', nil, size: 30 %></p>
-      <p><%= submit_tag "Create Grocery List", class: 'button' %></p>
-      <% end %>
+        <%= form_tag grocery_lists_path(current_user) do %>
+        <p>Grocery List Title:</p>
+        <p><%= text_field_tag :'grocery_list[title]', nil, size: 30 %></p>
+        <p><%= submit_tag "Create Grocery List", class: 'button' %></p>
+        <% end %>
       <% else %>
-      <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
+        <h3><%= link_to "Register to Create a Grocery List", new_user_path %></h3>
       <% end %>
     </div>
     <div class="col-4">
