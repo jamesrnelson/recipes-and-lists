@@ -2,12 +2,10 @@ class GroceryListPresenter
   attr_reader :id
 
   def initialize(id)
-    binding.pry
     @id = id
   end
 
   def unformatted_ingredients
-    binding.pry
     GroceryList.find(id.to_i).all_ingredients
   end
 
