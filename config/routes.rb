@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :user_recipes, only: %i[create destroy]
   resources :grocery_lists, only: %i[index new create show]
   resources :conversion, only: %i[create]
+  resources :purchase, only: %i[create]
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
@@ -28,4 +29,10 @@ Rails.application.routes.draw do
   get '/search', to: 'search#index'
   get '/search/:id', to: 'search#show'
   get '/handle_login.php', to: 'oauth#new'
+
+  namespace :api do
+    namespace :v1 do
+      get '/grocery_lists/:id', to: 'grocery_lists#show'
+    end
+  end
 end

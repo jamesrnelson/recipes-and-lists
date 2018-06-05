@@ -25,6 +25,7 @@ class GroceryListsController < ApplicationController
   def show
     user = User.find(current_user.id)
     @grocery_list = user.grocery_lists.find(params[:id])
+    @ingredients = @grocery_list.all_ingredients
   end
 
   private
