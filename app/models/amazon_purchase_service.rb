@@ -8,9 +8,10 @@ class AmazonPurchaseService
 
   def send_ingredients_to_amazon
     connection.post do |req|
-      req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
-      req.headers['Origin'] = 'https://damp-escarpment-50077.herokuapp.com'
-      req.headers['Referer'] = "https://damp-escarpment-50077.herokuapp.com/grocery_lists/#{id}"
+      req.url '/landing'
+      req.headers['Content-Type'] = 'application/json'
+      req.headers['Origin'] = 'http://localhost:3000'
+      req.headers['Referer'] = "http://localhost:3000/grocery_lists/"
       req.body = body
     end
   end
@@ -18,6 +19,6 @@ class AmazonPurchaseService
   private
 
   def connection
-    Faraday.new(url: 'https://www.amazon.com/afx/ingredients/landing')
+    Faraday.new(url: 'https://www.amazon.com/afx/ingredients')
   end
 end
