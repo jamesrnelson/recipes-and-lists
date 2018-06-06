@@ -1,11 +1,12 @@
 <div id="content">
   <div class="row">
     <div class="col-2">
+
+    </div>
+    <div class="col-4">
       <%= form_tag :search, method: :get %>
       <%= text_field_tag :q %>
       <%= submit_tag 'Search' %>
-    </div>
-    <div class="col-4">
       <% if current_user %>
       <p><%= link_to 'Add New Recipe', new_recipe_path %><p>
         <% else %>
