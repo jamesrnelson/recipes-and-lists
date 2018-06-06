@@ -469,3 +469,29 @@ label {
   from {opacity: .4}
   to {opacity: 1}
 }
+
+/* Flash Message Styling */
+.notice {
+  border: thin solid black;
+  background-color: #9ca315
+}
+
+.success {
+  border: thin solid black;
+  background-color: darkgreen;
+}
+
+.error {
+  border: thin solid black;
+  background-color: darkred;
+}
+
+.flash {
+    color: white;
+    text-align: center;
+    padding:    .3em .4em;
+    margin:     0 auto .5em;
+    clear:      both;
+    max-width:  46.923em;
+    max-width: 45.750em;
+}
