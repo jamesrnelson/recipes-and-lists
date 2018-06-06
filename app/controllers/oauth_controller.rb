@@ -4,50 +4,11 @@ require "json"
 require "uri"
 
 class OauthController < ApplicationController
-
-  def new
-    uri = URI.parse("https://api.amazon.com/auth/o2/tokeninfo?access_token=" + URI.encode(params[:access_token]))
-    req = Net::HTTP::Get.new(uri.request_uri)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-
-    response = http.request(req)
-    decode = JSON.parse(response.body)
-
-    if decode['aud'] != 'amzn1.application-oa2-client.c4acf8675a5c4f73bccbede476545fa6'
-      raise "Invalid token"
-    end
-
-    uri = URI.parse("https://api.amazon.com/user/profile")
-    req = Net::HTTP::Get.new(uri.request_uri)
-    req['Authorization'] = "bearer " + params[:access_token]
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-
-    response = http.request(req)
-    decode = JSON.parse(response.body)
-
-    if  user = User.exists?(amazon_id: decode['user_id'])
-      user = User.find_by(amazon_id: decode['user_id'])
+  def create
+    if user = User.from_omniauth(request.env["omniauth.auth"])
       session[:user_id] = user.id
-    else
-      user = User.create(
-        username: decode['name'],
-        email: "amazon_email_#{decode['email']}",
-        password: random_password,
-        amazon_id: decode['user_id']
-      )
-      session[:user_id] = user.id
+      session[:token] = request.env["omniauth.auth"]['credentials']['token']
     end
-    redirect_to dashboard_path
-    puts sprintf "%s %s %s", decode['name'], decode['email'], decode['user_id']
+    redirect_to recipes_path
   end
-
-  private
-
-    def random_password
-      SecureRandom.urlsafe_base64
-    end
 end
