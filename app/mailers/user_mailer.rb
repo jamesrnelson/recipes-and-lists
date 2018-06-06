@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
-  def registration_email
-    @user = params[:user]
-    mail(to: @user.email, subject: 'Welcome to Appetite!')
+  def registration_email(email, name)
+    @name = name
+    mail(to: email, subject: 'Welcome to Appetite!')
   end
 end

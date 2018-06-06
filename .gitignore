@@ -25,3 +25,5 @@
 
 /localhost.crt
 /localhost.key
+
+/spec/fixtures
