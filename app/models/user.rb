@@ -12,4 +12,13 @@ class User < ApplicationRecord
   has_many :user_recipes
   has_many :favorites, through: :user_recipes, source: :recipe
   has_many :grocery_lists
+
+  def self.from_omniauth(auth_info)
+    where(email: auth_info[:info][:email]).first_or_create do |new_user|
+      new_user.amazon_id          = auth_info.uid
+      new_user.username           = auth_info.info.name
+      new_user.email              = auth_info.info.email
+      new_user.password           = SecureRandom.urlsafe_base64
+    end
+  end
 end

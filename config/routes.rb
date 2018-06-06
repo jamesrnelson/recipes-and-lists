@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/search', to: 'search#index'
   get '/search/:id', to: 'search#show'
-  get '/handle_login.php', to: 'oauth#new'
+  get '/auth/amazon', as: :amazon_login
+  get '/auth/amazon/callback', to: 'oauth#create'
 
   namespace :api do
     namespace :v1 do

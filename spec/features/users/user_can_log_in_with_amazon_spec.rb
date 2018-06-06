@@ -2,12 +2,19 @@ require 'rails_helper'
 
 describe 'User visits /login' do
   context 'clicks on log in with amazon button' do
-    it 'should be redirected to an amazon log in site' do
-      visit login_path
+    it 'should be redirected to an amazon log in site', vcr: true do
+      stub_omniauth
 
-      click_on 'Login with Amazon'
+      visit root_path
+      expect(page.status_code).to eq(200)
 
-      expect(page).to have_content("An error occurred when we tried to process your request. Rest assured, we're already working on the problem and expect to resolve it shortly.")
+      click_on 'Log in'
+
+      within '#LoginWithAmazon' do
+        find(:xpath, "//a/img[@alt='Login with Amazon']/..").click
+      end
+
+      expect(current_path).to eq(recipes_path)
     end
   end
 end
