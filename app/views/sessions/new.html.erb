@@ -35,11 +35,7 @@
     <div class="col-4">
       <div class="login-box">
         <h3>or Log in with Amazon</h3>
-        <a href="/auth/amazon" id="LoginWithAmazon">
-          <img border="0" alt="Login with Amazon"
-          src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-          width="156" height="32" />
-        </a>
+        <%= link_to image_tag(asset_path('https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png'), alt: 'Login with Amazon', id: "LoginWithAmazon", width: 156, height: 32, border: 0), amazon_login_path %>
       </div>
 
     </div>
