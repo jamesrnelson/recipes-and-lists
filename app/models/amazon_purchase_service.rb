@@ -11,7 +11,7 @@ class AmazonPurchaseService
       req.url '/landing'
       req.headers['Content-Type'] = 'application/json'
       req.headers['Origin'] = 'https://damp-escarpment-50077.herokuapp.com'
-      req.headers['Referer'] = "https://damp-escarpment-50077.herokuapp.com/grocery_lists"
+      req.headers['Referer'] = "https://damp-escarpment-50077.herokuapp.com/grocery_lists#{id}"
       req.body = body
     end
   end
