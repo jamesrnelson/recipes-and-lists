@@ -35,6 +35,8 @@ gem 'figaro'
 gem 'newrelic_rpm'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'omniauth-amazon'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
