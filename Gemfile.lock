@@ -294,6 +294,7 @@ DEPENDENCIES
   pry
   puma (~> 3.7)
   rails (~> 5.1.6)
+  redis
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
@@ -305,6 +306,9 @@ DEPENDENCIES
   vcr
   web-console (>= 3.3.0)
   webmock
+
+RUBY VERSION
+   ruby 2.4.3p205
 
 BUNDLED WITH
    1.16.1
