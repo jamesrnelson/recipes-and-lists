@@ -10,8 +10,8 @@ class AmazonPurchaseService
     connection.post do |req|
       req.url '/landing'
       req.headers['Content-Type'] = 'application/json'
-      req.headers['Origin'] = 'http://localhost:3000'
-      req.headers['Referer'] = "http://localhost:3000/grocery_lists/"
+      req.headers['Origin'] = 'https://damp-escarpment-50077.herokuapp.com'
+      req.headers['Referer'] = "https://damp-escarpment-50077.herokuapp.com/grocery_lists"
       req.body = body
     end
   end
