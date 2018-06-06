@@ -85,3 +85,18 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:amazon] = OmniAuth::AuthHash.new({
+    provider: 'amazon',
+    uid: '1234',
+    info: {
+      name: 'James Nelson',
+      email: 'nelson.jimmy@gmail.com'
+    },
+    credentials: {
+      token: ENV['amazon_api_key']
+    }
+  })
+end

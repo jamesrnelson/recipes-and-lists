@@ -6,6 +6,7 @@ require "uri"
 class OauthController < ApplicationController
   def create
     if user = User.from_omniauth(request.env["omniauth.auth"])
+
       session[:user_id] = user.id
       session[:token] = request.env["omniauth.auth"]['credentials']['token']
     end
