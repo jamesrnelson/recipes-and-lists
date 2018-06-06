@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe 'Registered User' do
-  context 'can go to recipe show page' do
-    it 'should be able to see all ingredients' do
+describe 'User creates grocery list' do
+  context 'clicks the button to purchase on Amazon fresh' do
+    it 'should provide a flash message that the feature is coming soon', vcr: true do
       user = create(:user)
       recipe = create(:recipe)
       ingredient = create(:ingredient)
@@ -34,9 +34,9 @@ describe 'Registered User' do
 
       click_on 'Create Grocery List'
       click_on 'My first list!'
+      click_on 'Buy These Ingredients on Amazon Fresh'
 
-      expect(page).to have_content(ingredient.name)
-      expect(page).to have_content(ingredient2.name)
+      expect(page).to have_content('This feature is coming soon!')
     end
   end
 end
