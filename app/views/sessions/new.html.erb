@@ -68,11 +68,11 @@
   <script type="text/javascript">
 
     document.getElementById('LoginWithAmazon').onclick = function() {
-      options = { scope : 'profile' };
+      options = { scope : 'profile', popup: false };
       amazon.Login.authorize(options, "https://damp-escarpment-50077.herokuapp.com/handle_login.php");
       return false;
     };
 
   </script>
-  
+
 </div>
