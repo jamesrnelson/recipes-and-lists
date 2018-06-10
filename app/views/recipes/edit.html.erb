@@ -1,0 +1,45 @@
+<div id="content">
+
+  <%= form_tag(recipe_path, method: :put, multipart: true) do %>
+
+  <div class="row">
+    <div class="col-2">
+    </div>
+
+    <div class="col-4b">
+      <h1>Image Here</h1>
+      <% if @recipe.outside_image.nil? %>
+      <p><%= image_tag(@recipe.image) %></p>
+      <% else %>
+      <p><%= image_tag(@recipe.outside_image) %></p>
+      <% end %>
+      <p><%= file_field_tag :"recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
+
+      <div class="box grocery-list-box">
+        <h3>Ingredients: </h3>
+        <p>(Add ingredients on the next page)</p>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="box outside-recipe">
+        <h1>Title: </h1>
+        <%= text_field_tag :"recipe[title]", @recipe.title %>
+        <p>Prep Time</p>
+        <p><%= number_field_tag :"recipe[prep_time]", @recipe.prep_time, options = { min: 0 } %></p>
+        <p>Cook Time</p>
+        <p><%= number_field_tag :"recipe[cook_time]", @recipe.prep_time, options = { min: 0 } %></p>
+        <h3>Instructions:</h3>
+        <p><%= text_area_tag :"recipe[instructions]", @recipe.instructions, rows: 10, cols: 50 %></p>
+        <p><%= submit_tag "Update Recipe", class: 'button' %></p>
+      </div>
+    </div>
+
+    <div class="col-2">
+
+    </div>
+  </div>
+
+  <% end %>
+
+</div>

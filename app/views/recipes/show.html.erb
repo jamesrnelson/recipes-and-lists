@@ -47,13 +47,16 @@
             <% if @recipe.source_name %>
               <p>Originally created by:</p>
               <h3><%= link_to @recipe.source_name, @recipe.source_url %></h3>
+            </br>
             <% end %>
           <% end %>
           <% if current_user %>
-            <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: @recipe.id, user_id: current_user.id }), method: 'post' %>
+            <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon', class: 'icon'), user_recipes_path(user_recipe: { recipe_id: @recipe.id, user_id: current_user.id }), method: 'post' %>
           <% end %>
-          <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: @recipe.id), title: @recipe.title, method: :post %>
-
+          <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket', class: 'icon'), basket_path(recipe_id: @recipe.id), title: @recipe.title, method: :post %>
+          <% if current_user.id == @recipe.creator_id %>
+            <%= link_to image_tag(asset_path('edit_image.png'), alt: 'edit recipe', class: 'icon'), edit_recipe_path(@recipe) %>
+          <% end %>
           <p>Prep Time: <%= @recipe.prep_time %> minutes</p>
           <p>Cook Time: <%= @recipe.cook_time %> minutes</p>
           <h3>Instructions:</h3>
