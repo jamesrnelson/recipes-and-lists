@@ -1,23 +1,40 @@
 <div id="content">
-  <% if current_user %>
-  <h1>Add a new recipe here</h1>
 
   <%= form_tag(recipes_path, method: :post, multipart: true) do %>
-  <p>Title</p>
-  <p><%= text_field_tag :"recipe[title]" %></p>
-  <p>Prep Time</p>
-  <p><%= number_field_tag :"recipe[prep_time]" %></p>
-  <p>Cook Time</p>
-  <p><%= number_field_tag :"recipe[cook_time]" %></p>
-  <p>Instructions</p>
-  <p><%= text_area_tag :"recipe[instructions]" %></p>
-  <p>Image</p>
-  <p><%= file_field_tag :"recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
-    <p>(Add ingredients on the next page)</p>
-    <p><%= submit_tag "Create Recipe" %></p>
-    <% end %>
-    <% else %>
-    <h3>Create an account and log in to create new recipes!</h3>
-    <% end %>
+
+  <div class="row">
+    <div class="col-2">
+    </div>
+
+    <div class="col-4b">
+      <h1>Image Here</h1>
+      <p><%= file_field_tag :"recipe[image]", accept: 'image/png,image/gif,image/jpeg' %>
+
+      <div class="box grocery-list-box">
+        <h3>Ingredients: </h3>
+        <p>(Add ingredients on the next page)</p>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="box outside-recipe">
+        <h1>Title: </h1>
+        <%= text_field_tag :"recipe[title]" %>
+        <p>Prep Time</p>
+        <p><%= number_field_tag :"recipe[prep_time]", nil, options = { min: 0 } %></p>
+        <p>Cook Time</p>
+        <p><%= number_field_tag :"recipe[cook_time]", nil, options = { min: 0 } %></p>
+        <h3>Instructions:</h3>
+        <p><%= text_area_tag :"recipe[instructions]", nil, rows: 10, cols: 50 %></p>
+        <p><%= submit_tag "Create Recipe", class: 'button' %></p>
+      </div>
+    </div>
+
+    <div class="col-2">
+
+    </div>
+  </div>
+
+  <% end %>
 
 </div>
