@@ -12,19 +12,20 @@
       <% end %>
       <div class="box grocery-list-box">
         <h3>Ingredients: </h3>
+        <p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
         <% sorted = @recipe.recipe_ingredients.sort_by { |recipe_ingredient| recipe_ingredient.ingredient.name } %>
         <% sorted.each do |recipe_ingredient| %>
         <div class="ingredient-item">
           <p><%= check_box_tag :ingredient  %>
             <%= label_tag "#{recipe_ingredient.ingredient.name}, #{recipe_ingredient.quantity} #{recipe_ingredient.measurement} " %></p>
             <% if current_admin? %>
-            <% if recipe_ingredient.creator.nil? %>
-            <%= " - Created by Unknown at #{recipe_ingredient.created_at} - " %>
-            <% else %>
-            <%= " - Created by #{recipe_ingredient.creator.username} at #{recipe_ingredient.created_at} - " %>
-            <% end %>
+              <% if recipe_ingredient.creator.nil? %>
+              <%= " - Created by Unknown at #{recipe_ingredient.created_at} - " %>
+              <% else %>
+              <%= " - Created by #{recipe_ingredient.creator.username} at #{recipe_ingredient.created_at} - " %>
+              <% end %>
             <%= link_to 'Edit Ingredient', edit_admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id) %>
-            <%= link_to 'Delete Ingredient', admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id), method: 'delete', data: {confirm: "Are you sure you want to delete #{recipe_ingredient.ingredient.name} from #{@recipe.title}?"}, title: "#{recipe_ingredient.id} delete" %>
+            <%= link_to 'Delete Ingredient', admin_recipe_recipe_ingredient_path(recipe_id: @recipe.id, id: recipe_ingredient.id), method: 'delete', data: { confirm: "Are you sure you want to delete #{recipe_ingredient.ingredient.name} from #{@recipe.title}?" }, title: "#{recipe_ingredient.id} delete" %>
             <%= "Added on #{recipe_ingredient.created_at}" %>
             <% end %>
           </div>
@@ -40,12 +41,13 @@
           <% else %>
           <p><%= " Added by #{@recipe.creator.username}" %></p>
 
-          <% if current_admin? %>
-          <%= " - Created at #{@recipe.created_at}" %>
-          <% end %>
-          <p>Originally created by:</p>
-          <h3><%= link_to @recipe.source_name, @recipe.source_url %></h3>
-          <p><%= link_to 'Add Ingredients', new_recipe_recipe_ingredient_path(@recipe) %></p>
+            <% if current_admin? %>
+            <%= " - Created at #{@recipe.created_at}" %>
+            <% end %>
+            <% if @recipe.source_name %>
+              <p>Originally created by:</p>
+              <h3><%= link_to @recipe.source_name, @recipe.source_url %></h3>
+            <% end %>
           <% end %>
           <% if current_user %>
             <%= link_to image_tag(asset_path("heart_icon.png"), alt: 'heart_icon'), user_recipes_path(user_recipe: { recipe_id: @recipe.id, user_id: current_user.id }), method: 'post' %>
