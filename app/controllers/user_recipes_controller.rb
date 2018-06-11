@@ -11,6 +11,16 @@ class UserRecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def destroy
+    user_recipe = UserRecipe.find(params[:id])
+    if user_recipe.destroy
+      flash[:success] = "#{user_recipe.recipe.title} was successfully deleted from your favorites."
+    else
+      flash[:error] = "#{user_recipe.recipe.title} was not deleted from your favorites."
+    end
+    redirect_to dashboard_path
+  end
+
   private
 
   def user_recipe_params

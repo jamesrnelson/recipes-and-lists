@@ -7,7 +7,7 @@
   <p><%= f.label :quantity %></p>
   <p><%= f.text_field :quantity %></p>
   <p><%= f.label :measurement %></p>
-  <p><%= f.select :measurement, options_for_select(['count', 'cloves', 'tsp', 'tbsp', 'oz', 'lbs', 'oz', 'cup', 'other']) %></p>
+  <p><%= f.select :measurement, options_for_select(%w[count cloves slices stalks leaves bunches kilograms grams pounds ounces pinches liters centiliters millileters cc drops gallons quarts pints cups fl_oz tbsp tsp]) %></p>
   <p><%= f.submit 'Add Ingredient' %></p>
   <% end %>
   <%= link_to 'Create New Ingredient', new_ingredient_path(recipe_id: @recipe.id) %>
@@ -15,5 +15,5 @@
   <% else %>
   <h3>Log in to add ingredients to this recipe!</h3>
   <% end %>
-  
+
 </div>

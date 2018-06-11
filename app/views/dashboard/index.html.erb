@@ -36,10 +36,10 @@
       <div class="recipe">
         <div class="recipe-image-container">
           <div class="recipe-image">
-            <% if favorite.outside_image.nil? %>
-              <%= link_to image_tag(asset_path favorite.image), recipe_path(favorite) %>
+            <% if favorite.recipe.outside_image.nil? %>
+              <%= link_to image_tag(asset_path favorite.recipe.image), recipe_path(favorite.recipe) %>
             <% else %>
-              <%= link_to image_tag(asset_path favorite.outside_image), recipe_path(favorite) %>
+              <%= link_to image_tag(asset_path favorite.recipe.outside_image), recipe_path(favorite.recipe) %>
             <% end %>
           </div>
         </div>
@@ -48,11 +48,12 @@
 
     <div class="col-4">
       <div class="grocery-list-box">
-        <h3><%= link_to favorite.title, recipe_path(favorite) %></h3>
-        <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket'), basket_path(recipe_id: favorite.id), title: favorite.title, method: :post %></p>
-        <p><%= "Prep time: #{favorite.prep_time} minutes" %></p>
-        <p><%= "Cook time: #{favorite.cook_time} minutes" %></p>
-        <p><%= "Added on #{favorite.created_at.strftime("%B %-d, %Y")}" %></p>
+        <h3><%= link_to favorite.recipe.title, recipe_path(favorite.recipe) %></h3>
+        <%= link_to image_tag(asset_path('add_to_basket_icon.png'), alt: 'add to basket', class: 'icon'), basket_path(recipe_id: favorite.recipe.id), title: favorite.recipe.title, method: :post %>
+        <%= link_to image_tag(asset_path('delete_icon.png'), alt: 'delete from favorites'), user_recipe_path(favorite.id), method: 'delete', data: { confirm: "Are you sure you want to delete #{favorite.recipe.title} from your favorites?" }, title: "#{favorite.id} delete" %>
+        <p><%= "Prep time: #{favorite.recipe.prep_time} minutes" %></p>
+        <p><%= "Cook time: #{favorite.recipe.cook_time} minutes" %></p>
+        <p><%= "Added on #{favorite.recipe.created_at.strftime("%B %-d, %Y")}" %></p>
       </div>
     </div>
 

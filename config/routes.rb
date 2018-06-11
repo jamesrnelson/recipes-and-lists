@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :recipes, only: %i[edit update destroy] do
-      resources :recipe_ingredients, only: %i[edit update destroy]
+      resources :recipe_ingredients, only: %i[edit update]
     end
   end
 
   resources :recipes, only: %i[edit update new create index show] do
-    resources :recipe_ingredients, only: %i[new create]
+    resources :recipe_ingredients, only: %i[new create destroy]
   end
 
   resources :users, only: %i[new create show edit update], shallow: true
