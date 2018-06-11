@@ -18,11 +18,7 @@
         <%= link_to 'Browse Recipes', recipes_path %>
       </div>
       <div class="col-6a">
-        <% if current_user %>
-          <%= link_to 'Favorites', dashboard_path %>
-        <% else %>
-          <%= link_to 'Favorites', recipes_path %>
-        <% end %>
+        <%= link_to 'Favorites', dashboard_path %>
       </div>
       <div class="col-6a">
         <%= link_to 'Grocery Lists', grocery_lists_path %>
