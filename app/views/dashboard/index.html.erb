@@ -53,7 +53,7 @@
         <%= link_to image_tag(asset_path('delete_icon.png'), alt: 'delete from favorites'), user_recipe_path(favorite.id), method: 'delete', data: { confirm: "Are you sure you want to delete #{favorite.recipe.title} from your favorites?" }, title: "#{favorite.id} delete" %>
         <p><%= "Prep time: #{favorite.recipe.prep_time} minutes" %></p>
         <p><%= "Cook time: #{favorite.recipe.cook_time} minutes" %></p>
-        <p><%= "Added on #{favorite.recipe.created_at.strftime("%B %-d, %Y")}" %></p>
+        <p><%= "Added on #{favorite.created_at.strftime("%B %-d, %Y")}" %></p>
       </div>
     </div>
 
