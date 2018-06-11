@@ -20,17 +20,6 @@ class Admin::RecipeIngredientsController < Admin::BaseController
     end
   end
 
-  def destroy
-    recipe = Recipe.find(params[:recipe_id])
-    recipe_ingredient = RecipeIngredient.find(params[:id])
-    if recipe_ingredient.destroy
-      flash[:success] = "#{recipe_ingredient.ingredient.name} was successfully deleted from this recipe"
-    else
-      flash[:error] = "#{recipe_ingredient.ingredient.name} was not deleted from this recipe"
-    end
-    redirect_to recipe_path(recipe)
-  end
-
   private
 
   def recipe_ingredient_params

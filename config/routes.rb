@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :recipes, only: %i[edit update destroy] do
-      resources :recipe_ingredients, only: %i[edit update destroy]
+      resources :recipe_ingredients, only: %i[edit update]
     end
   end
 
