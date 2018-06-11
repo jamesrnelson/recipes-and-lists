@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :recipes, only: %i[edit update new create index show] do
-    resources :recipe_ingredients, only: %i[new create]
+    resources :recipe_ingredients, only: %i[new create destroy]
   end
 
   resources :users, only: %i[new create show edit update], shallow: true
