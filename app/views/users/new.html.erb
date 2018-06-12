@@ -27,9 +27,11 @@
         <p><%= f.text_field :username %></p>
         <p><%= f.label :email, 'E-mail address' %></p>
         <p><%= f.email_field :email %></p>
-        <p><%= f.label :password %></p>
+        <p>Password:</p>
         <p><%= f.password_field :password %></p>
-        <p><%= f.submit 'Create Account' %></p>
+        <p>Password confirmation:</p>
+        <p><%= f.password_field :password_confirmation %></p>
+        <p><%= f.submit 'Create Account', class: 'button' %></p>
         <% end %>
 
       </div>
