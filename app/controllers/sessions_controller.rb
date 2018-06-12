@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:email].downcase)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-
+\
   def destroy
     session.clear
     @current_user = nil

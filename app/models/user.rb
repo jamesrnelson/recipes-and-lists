@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :favorites, through: :user_recipes, source: :recipe
   has_many :grocery_lists
 
+  before_save :downcase_email
+
   def self.from_omniauth(auth_info)
     where(email: auth_info[:info][:email]).first_or_create do |new_user|
       new_user.amazon_id          = auth_info.uid
@@ -20,5 +22,9 @@ class User < ApplicationRecord
       new_user.email              = auth_info.info.email
       new_user.password           = SecureRandom.urlsafe_base64
     end
+  end
+
+  def downcase_email
+    self.email = self.email.downcase
   end
 end
