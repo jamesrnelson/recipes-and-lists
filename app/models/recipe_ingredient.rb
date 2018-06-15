@@ -9,7 +9,9 @@ class RecipeIngredient < ApplicationRecord
   belongs_to :creator, :class_name => 'User'
 
   def formatted_quantity
-    if quantity.split('.')[1].length == 1 && quantity.split('.')[1][0] == '0'
+    if quantity.split('.')[1].nil?
+      quantity
+    elsif quantity.split('.')[1].length == 1 && quantity.split('.')[1][0] == '0'
       "#{quantity.split('.')[0]}"
     elsif quantity.split('.')[0].to_i  > 0 && quantity.split('.')[1][0..1] == "33"
       "#{quantity.split('.')[0]} 1/3"
