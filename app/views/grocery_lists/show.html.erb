@@ -35,10 +35,10 @@
 
     <div class="items">
       <h3>Ingredients</h3>
-      <% @ingredients.each do |ingredient| %>
+      <% @grocery_list.ingredients.each do |ingredient| %>
       <div class="ingredient-item">
         <%= check_box_tag :ingredient  %>
-        <%= label_tag "#{ingredient.name} - #{ingredient.quantity} #{ingredient.measurement}" %>
+        <%= label_tag "#{ingredient.name} - #{@grocery_list.format_quantity(ingredient.quantity)} #{ingredient.measurement}" %>
       </div>
       <% end %>
     </div>
