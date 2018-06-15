@@ -7,7 +7,7 @@ describe 'Admin visits recipe show page' do
     ingredient = create(:ingredient)
 
     recipe_ingredient = RecipeIngredient.create(
-      quantity: 200,
+      quantity: '200',
       measurement: 'tbsp',
       recipe_id: recipe.id,
       ingredient_id: ingredient.id,

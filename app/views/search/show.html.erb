@@ -10,7 +10,7 @@
         <h3>Ingredients: </h3>
         <% @outside_recipe.ingredients.each do |ingredient| %>
         <p><%= check_box_tag :ingredient  %>
-          <%= label_tag  "#{ingredient.name}, #{ingredient.quantity} #{ingredient.measurement}" %></p>
+          <%= label_tag  "#{ingredient.name}, #{ingredient.formatted_quantity} #{ingredient.measurement}" %></p>
           <% end %>
 
         </div>
