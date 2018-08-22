@@ -3,22 +3,27 @@
     <div class="col-2">
 
     </div>
-    <div class="col-4">
-      <p><%= form_tag :search, method: :get %>
-        <%= text_field_tag :q %>
-        <%= submit_tag 'Search More Recipes' %></p>
-      <% if current_user %>
-        <p><%= link_to 'Add New Recipe', new_recipe_path %></p>
-      <% else %>
-        <h2>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h2>
-      <% end %>
-      </div>
-      <div class="col-4">
-        <h1>All Recipes</h1>
-      </div>
-      <div class="col-2">
-      </div>
+
+    <div class="center-search">
+      <h1>Find more recipes here:</h1>
+      <%= form_tag :search, method: :get %>
+      <%= text_field_tag :q, '', class: 'search-bar' %>
+      <p><%= submit_tag 'Search More Recipes', class: 'search-button' %></p>
     </div>
+
+    <div class="center-search">
+      <h1>All Recipes</h1>
+      <% if current_user %>
+      <p><%= link_to 'Add New Recipe', new_recipe_path %></p>
+      <% else %>
+      <h2>Create an account and log in to create your own recipes and to add recipes to your favorites list!</h2>
+      <% end %>
+    </div>
+
+    <div class="col-2">
+
+    </div>
+  </div>
 
     <% @recipes.each do |recipe| %>
     <div class="row recipe-item">
