@@ -502,3 +502,38 @@ label {
   animation-name: fade;
   animation-duration: 1.5s;
 }
+
+// .center {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.center-search {
+  display: flex;
+  flex-direction: column;
+  a{
+    font-family: $regular-text;
+    font-size: 22px;
+    text-decoration: underline;
+    color: $top-bar-background-color;
+  }
+  a:hover{
+    color: $nav-bar-background-color;
+  }
+
+  margin: 50px;
+}
+
+.search-bar {
+  width: 250px;
+  height: 25px;
+}
+
+.search-button {
+  width: 150px;
+  height: 30px;
+  background-color: #E99367;
+  color: #F3E9DE;
+}
