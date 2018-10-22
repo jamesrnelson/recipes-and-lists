@@ -1,4 +1,3 @@
----
 applications:
 - name: appetite-worker
   memory: 256M
@@ -7,4 +6,4 @@ applications:
   command: bundle exec sidekiq
   no-route: true
   services:
-  - sidekiq-redis:
+  - appetite-redis
