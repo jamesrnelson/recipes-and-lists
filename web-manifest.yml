@@ -2,6 +2,6 @@
 applications:
 - name: appetite
   command: bundle exec rake cf:on_first_instance db:migrate && rails s -p $PORT
-  memory: 512M
+  memory: 256M
   instances: 2
   random-route: true
