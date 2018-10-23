@@ -4,27 +4,52 @@ Appetite is available in production at:
 
 https://damp-escarpment-50077.herokuapp.com/
 
-## Version 1.0
 
-Appetite is a rails app that allows users to search for and collect recipes by accessing the Spoonacular recipe search API. Users are also able to add their own recipes to the collection. Registered users are able to favorite recipes from the main recipe collection and from search results. Once a searched recipe is favorited it becomes available in the main collection. All of these recipes are able to be added to the users basket, which can be converted into a grocery list.
+Appetite is a Rails app that allows users to search for and collect recipes by accessing the Spoonacular recipe search API. Users are also able to add their own recipes to the collection. Registered users are able to favorite recipes from the main recipe collection and from search results. Once a searched recipe is favorited it becomes available in the main collection.  Users are able to quickly search for recipes that are interesting to them and create grocery lists from their favorite recipes.
 
-Users will be able to quickly search for recipes that are interesting to them and create grocery lists from their favorite recipes.
+#### Ruby version
 
-## Coming Soon - Version 1.1
+Appetite was built using Ruby 2.4.3 and Rails 5.1.6 and tested with RSpec.
 
-Version 1.1 will contain the same base functionality as version 1.0, with the additional ability to auto-populate your grocery list at Amazon Fresh so that you can place your order and receive a same-day delivery.
+#### Set up and Use
+
+* In order to run Appetite locally, you will first need to set clone the project, bundle the project and set up the database.
+
+```shell
+git clone git@github.com:jamesrnelson/recipes-and-lists.git
+```
+
+```shell
+bundle install && bundle update
+```
+
+#### Create, Migrate, and Seed the Databases
+```shell
+rake db:create
+rake db:migrate
+rake db:seed
+```
+
+* In your local backend directory, run the server on http://localhost:3000 by running the following command:
+
+```shell
+rails server
+```
+* Appetite was also built using Redis and Sidekiq to asynchronously send welcome emails when people create accounts. If you want to simulate this functionality on your local machine, you will need to run Redis and Sidekiq from the appetite directory in separate terminal windows. Open one terminal and start the redis server with the command `$redis-server` and open another window and run sidekiq with the command `$bundle exec sidekiq`. If you do not already have Redis server you can get it via homebrew by running `$brew install redis`
+
+* In  your browser, navigate to http://localhost:3000. If everything has installed correctly you should be able to interact with the app as it functions in production.
+
+#### How to run the test suite
+
+Appetite was thoroughly tested using RSpec. In order to run the tests, make sure that you have already followed the steps about creating and migrating your database, then from your backend root directory run the following test command:
+
+```shell
+rspec
+```
 
 #### Ruby version
 
 Appetite uses ruby version 2.4.3 and rails version 5.1.6.
-
-#### Setup
-
-In order to get Appetite running locally, you will need to clone the repo, run 'bundle' (and 'bundle update' on a case-by-case basis) and then rake db:setup.
-
-#### Testing
-
-The test suite is written using rspec. From the root directory, run 'rspec' from the command line
 
 #### Services
 
