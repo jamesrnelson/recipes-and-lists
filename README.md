@@ -47,10 +47,6 @@ Appetite was thoroughly tested using RSpec. In order to run the tests, make sure
 rspec
 ```
 
-#### Ruby version
-
-Appetite uses ruby version 2.4.3 and rails version 5.1.6.
-
 #### Services
 
 Appetite uses sidekiq and redistogo in order to offload the burden of sending welcome emails from the main rails server to the redis queue.
